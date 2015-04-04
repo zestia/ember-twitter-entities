@@ -70,7 +70,7 @@ export default Ember.ContainerView.extend({
       this.addText(text.substring(index, start));
       this.addPart(part);
       index = end;
-    })
+    });
 
     this.addText(text.substring(index, text.length));
   },

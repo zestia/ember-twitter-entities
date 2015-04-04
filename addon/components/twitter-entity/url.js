@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import TwitterEntityComponent from '../twitter-entity';
 import layout from '../../templates/components/twitter-entity/url';
 
