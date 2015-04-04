@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-twitter-entities",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.0.1",
+  "description": "Renders Twitter Entities as Ember Components",
   "directories": {
     "doc": "doc",
     "test": "tests"

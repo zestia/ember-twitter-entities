@@ -1,25 +1,61 @@
-# Ember-cli-twitter-entities
+# ember-cli-twitter-entities
 
-This README outlines the details of collaborating on this Ember addon.
+This Ember CLI addon parses Twitter Entities and renders a them as Ember Components. 
 
-## Installation
+### Example
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+Given the following entities:
 
-## Running
+```
+entities: {
+  urls: [{
+    url: 'https://t.co/emberjs',
+    display_url: 'emberjs.com',
+    expanded_url: 'http://emberjs.com',
+    indices: [6, 17]
+  }],
+  hashtags: [],
+  user_mentions: [],
+  media: []
+}
+```
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+```
+{{twitter-entities text="visit emberjs.com" entities=entities}}
+```
 
-## Running Tests
+The addon will render:
 
-* `ember test`
-* `ember test --server`
+```
+visit <a id="ember123" class="ember-view" href="http://t.co/emberjs" target="_blank">emberjs.com</a>
+```
 
-## Building
+### Options
 
-* `ember build`
+You can pass in options for each type of entity, for example:
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+```
+urlOptions: {
+	target: '_self'
+},
+hashTagOptions: {
+	classNames: ['hash-tag']
+},
+userMentionOptions: {
+	title: Ember.computed.alias('entity.screen_name')
+},
+mediaOptions: {
+	imageSize: 'large',
+	target: '_twitter-image'
+}
+```
+
+```
+{{twitter-entities
+  text="visit emberjs.com"
+  entities=entities
+  urlOptions=urlOptions
+  hashTagOptions=hashTagOptions 
+  useMentionOptions=userMentionOptions
+  mediaOptions=mediaOptions}}
+```
