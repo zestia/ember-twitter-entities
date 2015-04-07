@@ -3,19 +3,18 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('twitter-entity/user-mention', {
-  // Specify the other units that are required for this test
-  // needs: ['component:foo', 'helper:bar']
-});
+moduleForComponent('twitter-entity/user-mention');
 
 test('it renders', function(assert) {
-  assert.expect(2);
+  assert.expect(1);
 
-  // Creates the component instance
-  var component = this.subject();
-  assert.equal(component._state, 'preRender');
+  let entity = { screen_name: 'emberjs' };
+  let component = this.subject({entity});
 
-  // Renders the component to the page
   this.render();
-  assert.equal(component._state, 'inDOM');
+
+  let html = component.get('element').outerHTML;
+  let regex = new RegExp('<a id="[^"]+" class="[^"]+" href="https://twitter.com/emberjs" target="_blank">@emberjs</a>');
+
+  assert.ok(regex.test(html));
 });

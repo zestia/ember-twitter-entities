@@ -4,6 +4,7 @@ import factories from '../factories';
 export default Ember.ContainerView.extend({
   text: '',
   entities: {},
+  options: {},
 
   types: {
     urls: 'Url',
@@ -11,11 +12,6 @@ export default Ember.ContainerView.extend({
     user_mentions: 'UserMention',
     media: 'Media'
   },
-
-  urlOptions: {},
-  hashTagOptions: {},
-  userMentionOptions: {},
-  mediaOptions: {},
 
   init() {
     this._super();
@@ -64,9 +60,7 @@ export default Ember.ContainerView.extend({
     let text = this.get('text');
 
     parts.forEach((part) => {
-      let entity = part.entity;
-      let start = entity.indices[0];
-      let end = entity.indices[1];
+      let [start, end] = part.entity.indices;
       this.addText(text.substring(index, start));
       this.addPart(part);
       index = end;
@@ -77,7 +71,7 @@ export default Ember.ContainerView.extend({
 
   optionsForType(type) {
     type = Ember.String.camelize(type);
-    return this.get(`${type}Options`);
+    return this.getWithDefault(`options.${type}`, {});
   },
 
 });

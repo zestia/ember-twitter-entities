@@ -35,27 +35,26 @@ visit <a id="ember123" class="ember-view" href="http://t.co/emberjs" target="_bl
 You can pass in options for each type of entity, for example:
 
 ```
-urlOptions: {
-	target: '_self'
-},
-hashTagOptions: {
-	classNames: ['hash-tag']
-},
-userMentionOptions: {
-	title: Ember.computed.alias('entity.screen_name')
-},
-mediaOptions: {
-	imageSize: 'large',
-	target: '_twitter-image'
+options: {
+	url: {
+		target: '_self'
+	},
+	hashTag: {
+		classNames: ['hash-tag']
+	},
+	userMention: {
+		title: Ember.computed.alias('entity.screen_name')
+	},
+	media: {
+		imageSize: 'large',
+		target: '_twitter-image'
+	}
 }
 ```
 
 ```
 {{twitter-entities
-  text="visit emberjs.com"
+  text="hello @world"
   entities=entities
-  urlOptions=urlOptions
-  hashTagOptions=hashTagOptions 
-  useMentionOptions=userMentionOptions
-  mediaOptions=mediaOptions}}
+  options=options}}
 ```
