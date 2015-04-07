@@ -3,19 +3,21 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('twitter-entity', {
-  // Specify the other units that are required for this test
-  // needs: ['component:foo', 'helper:bar']
-});
+moduleForComponent('twitter-entity');
 
 test('it renders', function(assert) {
-  assert.expect(2);
+  assert.expect(1);
 
-  // Creates the component instance
-  var component = this.subject();
-  assert.equal(component._state, 'preRender');
+  let component = this.subject({
+    href: 'http://fooentity',
+    title: 'foo entity',
+    target: '_foo'
+  });
 
-  // Renders the component to the page
   this.render();
-  assert.equal(component._state, 'inDOM');
+
+  let html = component.get('element').outerHTML;
+  let regex = new RegExp('<a id="[^"]+" class="[^"]+" title="foo entity" href="http://fooentity" target="_foo">');
+
+  assert.ok(regex.test(html));
 });
