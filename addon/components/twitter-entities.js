@@ -39,7 +39,7 @@ export default Ember.ContainerView.extend({
     });
 
     return parts.sort((a, b) => {
-      return a.start - b.start;
+      a.entity.indices[0] - b.entity.indices[0];
     });
   },
 
