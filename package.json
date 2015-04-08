@@ -1,9 +1,8 @@
 {
   "name": "ember-cli-twitter-entities",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Renders Twitter Entities as Ember Components",
   "directories": {
-    "doc": "doc",
     "test": "tests"
   },
   "scripts": {
@@ -11,11 +10,14 @@
     "build": "ember build",
     "test": "ember test"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amk221/ember-cli-twitter-entities.git"
+  },
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Andrew Kirwin",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.2",
@@ -41,5 +43,9 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/amk221/ember-cli-twitter-entities/issues"
+  },
+  "homepage": "https://github.com/amk221/ember-cli-twitter-entities"
 }
