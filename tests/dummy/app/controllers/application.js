@@ -1,9 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-
-  example1: 'Today, Twitter is updating embedded Tweets to enable a richer photo experience: https:\/\/t.co\/XdXRudPXH5',
-  example1Entities: {
+  urlsExample: 'Today, Twitter is updating embedded Tweets to enable a richer photo experience: https:\/\/t.co\/XdXRudPXH5',
+  urlsExampleEntities: {
     hashtags: [],
     symbols: [],
     urls: [{
@@ -14,12 +13,9 @@ export default Ember.Controller.extend({
     }],
     user_mentions: []
   },
-  example1Options: {
-    title: Ember.computed.alias('entity.display_url')
-  },
 
-  example2: 'Loved #devnestSF',
-  example2Entities: {
+  hashtagsExample: 'Loved #devnestSF',
+  hashtagsExampleEntities: {
     hashtags: [{
       text: 'devnestSF',
       indices: [6, 16]
@@ -28,12 +24,9 @@ export default Ember.Controller.extend({
     urls: [],
     user_mentions: []
   },
-  example2Options: {
-    classNames: ['hash-tag']
-  },
 
-  example3: 'We\u2019re excited to work closely with the external technical community and continue @twittereng\u2019s work with open source. cc @TwitterOSS',
-  example3Entities: {
+  userMentionsExample: 'We\u2019re excited to work closely with the external technical community and continue @twittereng\u2019s work with open source. cc @TwitterOSS',
+  userMentionsExampleEntities: {
     hashtags: [],
     symbols: [],
     urls: [],
@@ -51,12 +44,9 @@ export default Ember.Controller.extend({
       indices: [121, 132]
     }]
   },
-  example3Options: {
-    target: '_self'
-  },
 
-  example4: 'Four more years. http:\/\/t.co\/bAJE6Vom',
-  example4Entities: {
+  mediaExample: 'Four more years. http:\/\/t.co\/bAJE6Vom',
+  mediaExampleEntities: {
     hashtags: [],
     symbols: [],
     urls: [],
@@ -94,9 +84,5 @@ export default Ember.Controller.extend({
         }
       }
     }]
-  },
-  example4Options: {
-    imageSize: 'medium'
   }
-
 });

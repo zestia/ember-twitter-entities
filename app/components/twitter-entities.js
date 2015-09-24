@@ -1,3 +1,1 @@
-import twitterEntities from 'ember-cli-twitter-entities/components/twitter-entities';
-
-export default twitterEntities;
+export { default } from 'ember-cli-twitter-entities/components/twitter-entities';

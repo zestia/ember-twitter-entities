@@ -1,11 +1,7 @@
-import Ember from 'ember';
-import TwitterEntityComponent from '../twitter-entity';
+import Component from 'ember-component';
 import layout from '../../templates/components/twitter-entity/url';
 
-export default TwitterEntityComponent.extend({
+export default Component.extend({
   layout: layout,
-  title: Ember.computed.alias('entity.expanded_url'),
-  href: Ember.computed(function() {
-    return this.get('entity.url');
-  })
+  tagName: ''
 });

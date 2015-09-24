@@ -1,77 +1,70 @@
 import Ember from 'ember';
-import factories from '../factories';
+import Component from 'ember-component';
+import layout from '../templates/components/twitter-entities';
 
-export default Ember.ContainerView.extend({
-  text: '',
-  entities: {},
-  options: {},
+const { compare, getWithDefault } = Ember;
+const { slice } = window.unicodeStringUtils;
 
-  types: {
-    urls: 'Url',
-    hashtags: 'HashTag',
-    user_mentions: 'UserMention',
-    media: 'Media'
-  },
+export default Component.extend({
+  layout: layout,
 
-  init() {
-    this._super();
-
-    let parts = this.getParts();
-
-    if (parts) {
-      this.addParts(parts);
-    } else {
-      this.addText(this.get('text'));
-    }
-  },
-
-  getParts() {
+  didInitAttrs() {
     let parts = [];
-    let entities = this.get('entities');
+    parts = this._entitiesToArray(this.getAttr('entities'));
+    parts = this._textToArray(this.getAttr('text'), parts);
+    this.set('parts', parts);
+  },
+
+  _entitiesToArray(entities = {}) {
+    let parts = [];
 
     Object.keys(entities).forEach((key) => {
-      let typeEntities = Ember.getWithDefault(entities, key, []);
+      let typeEntities = getWithDefault(entities, key, []);
 
       typeEntities.forEach((entity) => {
-        let type = this.get(`types.${key}`);
-        parts.push({type, entity});
+        let component = this._nameForType(key);
+        parts.push({ component, entity });
       });
     });
 
-    return parts.sort((a, b) =>
-      a.entity.indices[0] - b.entity.indices[0]
-    );
+    parts.sort((a, b) => {
+      return compare(a.entity.indices[0], b.entity.indices[0]);
+    });
+
+    return parts;
   },
 
-  addText(text) {
-    this.pushObject(factories.PlainText.create({text}));
-  },
-
-  addPart(part) {
-    let {type, entity} = part;
-    let options = this.optionsForType(type);
-    let Component = factories[type].extend(options);
-
-    this.pushObject(Component.create({entity}));
-  },
-
-  addParts(parts) {
+  _textToArray(tweet = '', entityParts = []) {
+    let text  = '';
+    let parts = [];
     let index = 0;
-    let text = this.get('text');
 
-    parts.forEach((part) => {
+    entityParts.forEach((part) => {
       let [start, end] = part.entity.indices;
-      this.addText(text.substring(index, start));
-      this.addPart(part);
+      text = slice(tweet, index, start);
+
+      if (text) { parts.push({ text }); }
+
+      parts.push(part);
       index = end;
     });
 
-    this.addText(text.substring(index, text.length));
+    text = slice(tweet, index);
+    if (text) { parts.push({ text }); }
+
+    return parts;
   },
 
-  optionsForType(type) {
-    type = Ember.String.camelize(type);
-    return this.getWithDefault(`options.${type}`, {});
-  },
+  _nameForType(type) {
+    if (type === 'urls') {
+      return this.getAttr('urlComponent') || 'twitter-entity/url';
+    } else if (type === 'hashtags') {
+      return this.getAttr('hashtagComponent') || 'twitter-entity/hashtag';
+    } else if (type === 'user_mentions') {
+      return this.getAttr('userMentionComponent') || 'twitter-entity/user-mention';
+    } else if (type === 'media') {
+      return this.getAttr('mediaComponent') || 'twitter-entity/media';
+    }
+  }
 
 });
