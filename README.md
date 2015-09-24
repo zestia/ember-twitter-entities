@@ -4,7 +4,7 @@ This Ember CLI addon parses [Twitter Entities](https://dev.twitter.com/overview/
 
 ### Installation
 ```
-ember install:addon ember-cli-twitter-entities
+ember install ember-cli-twitter-entities
 ```
 
 ### Example usage
