@@ -123,10 +123,10 @@ test('custom entity components', function(assert) {
     {{twitter-entities
       text=text
       entities=entities
-      urlComponent='custom-url'
-      hashtagComponent='custom-hashtag'
-      userMentionComponent='custom-user-mention'
-      mediaComponent='custom-media'}}
+      url-component='custom-url'
+      hashtag-component='custom-hashtag'
+      user-mention-component='custom-user-mention'
+      media-component='custom-media'}}
   `);
 
   let $el = this.$('> div');

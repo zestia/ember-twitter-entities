@@ -56,8 +56,8 @@ Alternatively, you can customise the component on a per-instance basis.
 
 ```
 {{twitter-entities text=tweet entities=entities
-  urlComponent='tweet-url'
-  hashtagComponent='hash-tag'
-  userMentionComponent='user-mention'
-  mediaComponent='x-gallery/image'
+  url-component='tweet-url'
+  hashtag-component='hash-tag'
+  user-mention-component='user-mention'
+  media-component='x-gallery/image'
 ```

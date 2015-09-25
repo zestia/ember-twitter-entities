@@ -57,13 +57,13 @@ export default Component.extend({
 
   _nameForType(type) {
     if (type === 'urls') {
-      return this.getAttr('urlComponent') || 'twitter-entity/url';
+      return this.getAttr('url-component') || 'twitter-entity/url';
     } else if (type === 'hashtags') {
-      return this.getAttr('hashtagComponent') || 'twitter-entity/hashtag';
+      return this.getAttr('hashtag-component') || 'twitter-entity/hashtag';
     } else if (type === 'user_mentions') {
-      return this.getAttr('userMentionComponent') || 'twitter-entity/user-mention';
+      return this.getAttr('user-mention-component') || 'twitter-entity/user-mention';
     } else if (type === 'media') {
-      return this.getAttr('mediaComponent') || 'twitter-entity/media';
+      return this.getAttr('media-component') || 'twitter-entity/media';
     }
   }
 
