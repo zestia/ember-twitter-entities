@@ -42,7 +42,7 @@ If you want to display twitter entities differently to the defaults, simply exte
 // components/twitter-entity/media/component.js
 
 import Component from 'ember-cli-twitter-entities/components/twitter-entity/media';
-import layout from './layout';
+import layout from './template';
 
 export default Component.extend({ layout });
 ```
