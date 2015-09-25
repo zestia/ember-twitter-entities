@@ -36,7 +36,23 @@ visit <a href="http://t.co/emberjs">emberjs.com</a>
 
 ### Customising
 
-You can customise what component is used to render each type of Twitter entity:
+If you want to display twitter entities differently to the defaults, simply extend the component and provide a different template:
+
+```
+// components/twitter-entity/media/component.js
+
+import Component from 'ember-cli-twitter-entities/components/twitter-entity/media';
+import layout from './layout';
+
+export default Component.extend({ layout });
+```
+```
+{{! components/twitter-entity/media/template.hbs }}
+
+<img src={{entity.media_url_https}} width={{entity.sizes.thumb.w}} height={{entity.sizes.thumb.h}}>
+```
+
+Alternatively, you can customise the component on a per-instance basis.
 
 ```
 {{twitter-entities text=tweet entities=entities
