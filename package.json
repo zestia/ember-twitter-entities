@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-twitter-entities",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Renders Twitter Entities as Ember Components",
   "directories": {
     "test": "tests"
@@ -33,11 +33,11 @@
     "ember-cli-release": "0.2.3",
     "ember-cli-sri": "^1.0.3",
     "ember-cli-uglify": "^1.2.0",
-    "ember-data": "2.0.0",
+    "ember-data": "2.1.0",
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.3",
     "ember-disable-prototype-extensions": "^1.0.0",
-    "ember-try": "0.0.6"
+    "ember-try": "0.0.8"
   },
   "keywords": [
     "ember-addon",
