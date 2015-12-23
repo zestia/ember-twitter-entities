@@ -13,7 +13,7 @@ ember install ember-cli-twitter-entities
 
 Given the following:
 
-```
+```javascript
 entities: {
   urls: [{
     url: 'https://t.co/emberjs',
@@ -26,13 +26,13 @@ entities: {
 }
 ```
 
-```
+```handlebars
 {{twitter-entities text="visit emberjs.com" entities=entities}}
 ```
 
 The addon will render:
 
-```
+```html
 visit <a href="http://t.co/emberjs">emberjs.com</a>
 ```
 
@@ -40,7 +40,7 @@ visit <a href="http://t.co/emberjs">emberjs.com</a>
 
 If you want to display twitter entities differently to the defaults, simply extend the component and provide a different template:
 
-```
+```javascript
 // components/twitter-entity/media/component.js
 
 import Component from 'ember-cli-twitter-entities/components/twitter-entity/media';
@@ -48,7 +48,7 @@ import layout from './template';
 
 export default Component.extend({ layout });
 ```
-```
+```handlebars
 {{! components/twitter-entity/media/template.hbs }}
 
 <img src={{entity.media_url_https}} width={{entity.sizes.thumb.w}} height={{entity.sizes.thumb.h}}>
@@ -56,7 +56,7 @@ export default Component.extend({ layout });
 
 Alternatively, you can customise the component on a per-instance basis.
 
-```
+```handlebars
 {{twitter-entities text=tweet entities=entities
   url-component='tweet-url'
   hashtag-component='hash-tag'
