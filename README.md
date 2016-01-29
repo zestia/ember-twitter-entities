@@ -1,6 +1,6 @@
 # ember-cli-twitter-entities
 
-<a href="http://emberobserver.com/addons/ember-cli-twitter-entities"><img src="http://emberobserver.com/badges/ember-cli-twitter-entities.svg"></a>
+<a href="http://emberobserver.com/addons/ember-cli-twitter-entities"><img src="http://emberobserver.com/badges/ember-cli-twitter-entities.svg"></a> &nbsp; <a href="https://david-dm.org/amk221/ember-cli-twitter-entities#badge-embed"><img src="https://david-dm.org/amk221/ember-cli-twitter-entities.svg"></a> &nbsp; <a href="https://david-dm.org/amk221/ember-cli-twitter-entities#dev-badge-embed"><img src="https://david-dm.org/amk221/ember-cli-twitter-entities/dev-status.svg"></a>
 
 This Ember CLI addon parses [Twitter Entities](https://dev.twitter.com/overview/api/entities-in-twitter-objects) from the Twitter API and renders a them as Ember Components.
 
