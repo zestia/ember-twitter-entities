@@ -1,6 +1,6 @@
 # ember-cli-twitter-entities
 
-<a href="http://emberobserver.com/addons/ember-cli-twitter-entities"><img src="http://emberobserver.com/badges/ember-cli-twitter-entities.svg"></a> &nbsp; <a href="https://david-dm.org/amk221/ember-cli-twitter-entities#badge-embed"><img src="https://david-dm.org/amk221/ember-cli-twitter-entities.svg"></a> &nbsp; <a href="https://david-dm.org/amk221/ember-cli-twitter-entities#dev-badge-embed"><img src="https://david-dm.org/amk221/ember-cli-twitter-entities/dev-status.svg"></a>
+<a href="http://emberobserver.com/addons/ember-cli-twitter-entities"><img src="http://emberobserver.com/badges/ember-cli-twitter-entities.svg"></a> &nbsp; <a href="https://david-dm.org/amk221/ember-cli-twitter-entities#badge-embed"><img src="https://david-dm.org/amk221/ember-cli-twitter-entities.svg"></a> &nbsp; <a href="https://david-dm.org/amk221/ember-cli-twitter-entities#dev-badge-embed"><img src="https://david-dm.org/amk221/ember-cli-twitter-entities/dev-status.svg"></a> &nbsp; <a href="https://codeclimate.com/repos/56af198650b09a0154002c8d/feed"><img src="https://codeclimate.com/repos/56af198650b09a0154002c8d/badges/839728c06e711e2df92e/gpa.svg" /></a>
 
 This Ember CLI addon parses [Twitter Entities](https://dev.twitter.com/overview/api/entities-in-twitter-objects) from the Twitter API and renders a them as Ember Components.
 
