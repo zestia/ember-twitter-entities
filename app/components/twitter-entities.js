@@ -1,1 +1,1 @@
-export { default } from 'ember-cli-twitter-entities/components/twitter-entities';
+export { default } from 'ember-twitter-entities/components/twitter-entities';

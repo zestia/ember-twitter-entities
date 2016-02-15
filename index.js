@@ -2,7 +2,7 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-cli-twitter-entities',
+  name: 'ember-twitter-entities',
 
   included: function(app) {
     this._super.included(app);

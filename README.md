@@ -1,12 +1,12 @@
-# ember-cli-twitter-entities
+# ember-twitter-entities
 
-<a href="http://emberobserver.com/addons/ember-cli-twitter-entities"><img src="http://emberobserver.com/badges/ember-cli-twitter-entities.svg"></a> &nbsp; <a href="https://david-dm.org/amk221/ember-cli-twitter-entities#badge-embed"><img src="https://david-dm.org/amk221/ember-cli-twitter-entities.svg"></a> &nbsp; <a href="https://david-dm.org/amk221/ember-cli-twitter-entities#dev-badge-embed"><img src="https://david-dm.org/amk221/ember-cli-twitter-entities/dev-status.svg"></a> &nbsp; <a href="https://codeclimate.com/github/amk221/ember-cli-twitter-entities"><img src="https://codeclimate.com/github/amk221/ember-cli-twitter-entities/badges/gpa.svg" /></a> &nbsp; <a href="http://travis-ci.org/amk221/ember-cli-twitter-entities"><img src="https://travis-ci.org/amk221/ember-cli-twitter-entities.svg?branch=master"></a>
+<a href="http://emberobserver.com/addons/ember-twitter-entities"><img src="http://emberobserver.com/badges/ember-twitter-entities.svg"></a> &nbsp; <a href="https://david-dm.org/amk221/ember-twitter-entities#badge-embed"><img src="https://david-dm.org/amk221/ember-twitter-entities.svg"></a> &nbsp; <a href="https://david-dm.org/amk221/ember-twitter-entities#dev-badge-embed"><img src="https://david-dm.org/amk221/ember-twitter-entities/dev-status.svg"></a> &nbsp; <a href="https://codeclimate.com/github/amk221/ember-twitter-entities"><img src="https://codeclimate.com/github/amk221/ember-twitter-entities/badges/gpa.svg" /></a> &nbsp; <a href="http://travis-ci.org/amk221/ember-twitter-entities"><img src="https://travis-ci.org/amk221/ember-twitter-entities.svg?branch=master"></a>
 
 This Ember CLI addon parses [Twitter Entities](https://dev.twitter.com/overview/api/entities-in-twitter-objects) from the Twitter API and renders a them as Ember Components.
 
 ### Installation
 ```
-ember install ember-cli-twitter-entities
+ember install ember-twitter-entities
 ```
 
 ### Example usage
@@ -43,7 +43,7 @@ If you want to display twitter entities differently to the defaults, simply exte
 ```javascript
 // components/twitter-entity/media/component.js
 
-import Component from 'ember-cli-twitter-entities/components/twitter-entity/media';
+import Component from 'ember-twitter-entities/components/twitter-entity/media';
 import layout from './template';
 
 export default Component.extend({ layout });
