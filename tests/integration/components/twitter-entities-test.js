@@ -140,3 +140,33 @@ test('custom entity components', function(assert) {
   );
 
 });
+
+
+
+test('passing in custom entitity components', function(assert) {
+  assert.expect(1);
+
+  const CustomURL = Component.extend({
+    layout: hbs`{{entity.display_url}} ({{attrs.foo}})`
+  });
+
+  this.set('entities', {
+    urls: [{
+      url: 'http://t.co/foo',
+      display_url: 'foo.com',
+      indices: [6, 11]
+    }]
+  });
+
+  this.register('component:custom-url', CustomURL);
+
+  this.render(hbs`
+    {{twitter-entities
+      text='Hello World'
+      entities=entities
+      url-component=(component 'custom-url' foo='bar')}}
+  `);
+
+  assert.ok(this.$().html().match(/foo\.com \(bar\)/),
+    'component receives entity and attrs');
+});

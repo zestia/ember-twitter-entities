@@ -63,3 +63,9 @@ Alternatively, you can customise the component on a per-instance basis.
   user-mention-component='user-mention'
   media-component='x-gallery/image'
 ```
+You can even pass in a component
+
+```handlebars
+{{twitter-entities text=text entities=entities
+  url-component=(component 'my-component' target='_blank')
+```
