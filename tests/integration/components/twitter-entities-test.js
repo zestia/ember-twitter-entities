@@ -143,7 +143,7 @@ test('custom entity components', function(assert) {
 
 
 
-test('passing in custom entitity components', function(assert) {
+test('passing in custom components', function(assert) {
   assert.expect(1);
 
   const CustomURL = Component.extend({
