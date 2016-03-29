@@ -9,6 +9,7 @@ export default Component.extend({
   layout: layout,
 
   didInitAttrs() {
+    this._super(...arguments);
     let parts = [];
     parts = this._entitiesToArray(this.getAttr('entities'));
     parts = this._textToArray(this.getAttr('text'), parts);
@@ -22,7 +23,7 @@ export default Component.extend({
       let typeEntities = getWithDefault(entities, key, []);
 
       typeEntities.forEach((entity) => {
-        let component = this._nameForType(key);
+        let component = this._componentForType(key);
         parts.push({ component, entity });
       });
     });
@@ -55,16 +56,16 @@ export default Component.extend({
     return parts;
   },
 
-  _nameForType(type) {
-    if (type === 'urls') {
-      return this.getAttr('url-component') || 'twitter-entity/url';
-    } else if (type === 'hashtags') {
-      return this.getAttr('hashtag-component') || 'twitter-entity/hashtag';
-    } else if (type === 'user_mentions') {
-      return this.getAttr('user-mention-component') || 'twitter-entity/user-mention';
-    } else if (type === 'media') {
-      return this.getAttr('media-component') || 'twitter-entity/media';
-    }
-  }
+  _componentForType(type) {
+    let types = {
+      urls: 'url',
+      hashtags: 'hashtag',
+      user_mentions: 'user-mention',
+      media: 'media'
+    };
 
+    let name = types[type];
+
+    return this.getAttr(`${name}-component`) || `twitter-entity/${name}`;
+  }
 });
