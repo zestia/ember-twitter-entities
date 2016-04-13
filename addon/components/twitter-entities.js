@@ -2,13 +2,14 @@ import Ember from 'ember';
 import Component from 'ember-component';
 import layout from '../templates/components/twitter-entities';
 
+const { keys } = Object;
 const { compare, getWithDefault } = Ember;
 const { slice } = window.unicodeStringUtils;
 
 export default Component.extend({
   layout: layout,
 
-  didInitAttrs() {
+  init() {
     this._super(...arguments);
     let parts = [];
     parts = this._entitiesToArray(this.getAttr('entities'));
@@ -19,7 +20,7 @@ export default Component.extend({
   _entitiesToArray(entities = {}) {
     let parts = [];
 
-    Object.keys(entities).forEach((key) => {
+    keys(entities).forEach((key) => {
       let typeEntities = getWithDefault(entities, key, []);
 
       typeEntities.forEach((entity) => {
