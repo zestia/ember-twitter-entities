@@ -1,4 +1,4 @@
-# ember-twitter-entities
+# :bird: ember-twitter-entities
 
 <a href="http://emberobserver.com/addons/ember-twitter-entities"><img src="http://emberobserver.com/badges/ember-twitter-entities.svg"></a> &nbsp; <a href="https://david-dm.org/amk221/ember-twitter-entities#badge-embed"><img src="https://david-dm.org/amk221/ember-twitter-entities.svg"></a> &nbsp; <a href="https://david-dm.org/amk221/ember-twitter-entities#dev-badge-embed"><img src="https://david-dm.org/amk221/ember-twitter-entities/dev-status.svg"></a> &nbsp; <a href="https://codeclimate.com/github/amk221/ember-twitter-entities"><img src="https://codeclimate.com/github/amk221/ember-twitter-entities/badges/gpa.svg" /></a> &nbsp; <a href="http://travis-ci.org/amk221/ember-twitter-entities"><img src="https://travis-ci.org/amk221/ember-twitter-entities.svg?branch=master"></a>
 
