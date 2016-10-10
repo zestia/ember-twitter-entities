@@ -69,3 +69,21 @@ You can even pass in a component
 {{twitter-entities text=text entities=entities
   url-component=(component 'my-component' target='_blank')
 ```
+
+### HTML in tweets
+
+If the tweet you are rendering is already encoded, flag it as html-safe to prevent double encoding.
+
+```javascript
+let tweet = 'This tweet contains &lt;br&gt; HTML';
+this.set('text', htmlSafe(tweet));
+```
+
+```handlebars
+{{twitter-entities text=text}}
+```
+
+```
+Outputs: This tweet contains <br> HTML
+Not      This tweet contains &lt;br&gt; HTML
+```
