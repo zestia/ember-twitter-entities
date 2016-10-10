@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import Component from 'ember-component';
 import layout from '../templates/components/twitter-entities';
+import { htmlSafe } from 'ember-string';
 
 const { keys } = Object;
 const { compare, getWithDefault } = Ember;
@@ -11,9 +12,18 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
-    let parts = [];
-    parts = this._entitiesToArray(this.getAttr('entities'));
-    parts = this._textToArray(this.getAttr('text'), parts);
+
+    let text     = this.getAttr('text');
+    let entities = this.getAttr('entities');
+    let parts    = [];
+
+    parts = this._entitiesToArray(entities);
+    parts = this._textToArray(text, parts);
+
+    if (this._isHTMLSafe(text)) {
+      parts = this._makeSafe(parts);
+    }
+
     this.set('parts', parts);
   },
 
@@ -41,6 +51,8 @@ export default Component.extend({
     let parts = [];
     let index = 0;
 
+    tweet = tweet.toString();
+
     entityParts.forEach((part) => {
       let [start, end] = part.entity.indices;
       text = slice(tweet, index, start);
@@ -55,6 +67,19 @@ export default Component.extend({
     if (text) { parts.push({ text }); }
 
     return parts;
+  },
+
+  _makeSafe(parts) {
+    return parts.map(part => {
+      if (part.text) {
+        part.text = htmlSafe(part.text);
+      }
+      return part;
+    });
+  },
+
+  _isHTMLSafe(string) {
+    return string && typeof string.toHTML === 'function';
   },
 
   _componentForType(type) {

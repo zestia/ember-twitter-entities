@@ -1,6 +1,7 @@
 import Component from 'ember-component';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
+import { htmlSafe } from 'ember-string';
 
 moduleForComponent('twitter-entities', 'Integration | Component | twitter entities', {
   integration: true
@@ -169,4 +170,27 @@ test('passing in custom components', function(assert) {
 
   assert.ok(this.$().html().match(/foo\.com \(bar\)/),
     'component receives entity and attrs');
+});
+
+
+test('html safe tweets', function(assert) {
+  assert.expect(1);
+
+  this.set('entities', {
+    urls: [{
+      url: 'http://t.co/foo',
+      display_url: 'foo.com',
+      indices: [13, 20]
+    }]
+  });
+
+  this.set('text', htmlSafe('<b>Visit</b> foo.com'));
+
+  this.render(hbs`
+    {{twitter-entities text=text entities=entities}}
+  `);
+
+  assert.equal(this.$('> div').html(),
+    '<b>Visit</b> <a href="http://t.co/foo">foo.com</a>',
+    'if the tweet is marked as safe, html can be output');
 });
