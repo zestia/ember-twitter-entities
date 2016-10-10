@@ -84,6 +84,6 @@ this.set('text', htmlSafe(tweet));
 ```
 
 ```
-Outputs: This tweet contains <br> HTML
-Not      This tweet contains &lt;br&gt; HTML
+Outputs:    This tweet contains <br> HTML
+Instead of: This tweet contains &lt;br&gt; HTML
 ```
