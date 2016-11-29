@@ -9,7 +9,7 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember try:testall"
+    "test": "ember try:each"
   },
   "repository": {
     "type": "git",
@@ -47,7 +47,7 @@
     "user_mentions"
   ],
   "dependencies": {
-    "ember-cli-babel": "^5.1.6",
+    "ember-cli-babel": "^5.1.10",
     "ember-cli-htmlbars": "^1.1.0"
   },
   "ember-addon": {
