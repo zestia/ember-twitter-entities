@@ -4,12 +4,12 @@ import jQuery from 'jquery';
 import layout from '../../templates/components/twitter-entity/hashtag';
 
 export default Component.extend({
-  layout: layout,
+  layout,
   tagName: '',
 
   href: computed(function() {
-    return 'https://twitter.com/search?' + jQuery.param({
-      q: '#' + this.getAttr('entity').text
-    });
+    const hashtag = this.getAttr('entity').text;
+    const params = jQuery.param({ q: `#${hashtag}` });
+    return `https://twitter.com/search?${params}`;
   })
 });

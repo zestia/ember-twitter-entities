@@ -1,7 +1,11 @@
+/* eslint-disable camelcase */
+
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('twitter-entity/media', 'Integration | Component | twitter entity/media', {
+moduleForComponent(
+  'twitter-entity/media',
+  'Integration | Component | twitter entity/media', {
   integration: true
 });
 

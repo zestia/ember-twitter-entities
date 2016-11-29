@@ -1,9 +1,13 @@
+/* eslint-disable camelcase */
+
 import Component from 'ember-component';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import { htmlSafe } from 'ember-string';
 
-moduleForComponent('twitter-entities', 'Integration | Component | twitter entities', {
+moduleForComponent(
+  'twitter-entities',
+  'Integration | Component | twitter entities', {
   integration: true
 });
 
@@ -20,7 +24,7 @@ test('it renders', function(assert) {
     'html: <script>',
     'emojis: 💥 hashtag2',
     'trailing: text'
-  ].join("\n"));
+  ].join('\n'));
 
   this.set('entities', {
     urls: [{
@@ -96,7 +100,7 @@ test('custom entity components', function(assert) {
     'hashtag: hashtag',
     'user mention: user mention',
     'media: media'
-  ].join("\n"));
+  ].join('\n'));
 
   this.set('entities', {
     urls: [{
@@ -130,7 +134,7 @@ test('custom entity components', function(assert) {
       media-component='custom-media'}}
   `);
 
-  let $el = this.$('> div');
+  const $el = this.$('> div');
 
   assert.equal($el.children('div:eq(0)').html(), 'custom url: foo.com');
   assert.equal($el.children('div:eq(1)').html(), 'custom hashtag: bar');
