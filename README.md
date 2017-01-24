@@ -75,7 +75,7 @@ You can even pass in a component
 If the tweet you are rendering is already encoded, flag it as html-safe to prevent double encoding.
 
 ```javascript
-let tweet = 'This tweet contains &lt;br&gt; HTML';
+const tweet = 'This tweet contains &lt;br&gt; HTML';
 this.set('text', htmlSafe(tweet));
 ```
 
