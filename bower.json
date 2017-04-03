@@ -1,6 +1,3 @@
 {
-  "name": "ember-twitter-entities",
-  "dependencies": {
-    "unicode-string-utils": "~0.1.0"
-  }
+  "name": "ember-twitter-entities"
 }

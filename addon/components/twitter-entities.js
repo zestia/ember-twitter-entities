@@ -7,7 +7,6 @@ import { htmlSafe } from 'ember-string';
 
 const { keys } = Object;
 const { compare, getWithDefault } = Ember;
-const { slice } = window.unicodeStringUtils;
 
 export default Component.extend({
   layout,
@@ -57,7 +56,7 @@ export default Component.extend({
 
     entityParts.forEach(part => {
       const [start, end] = part.entity.indices;
-      text = slice(tweet, index, start);
+      text = Array.from(tweet).slice(index, start).join('');
 
       if (text) {
         parts.push({ text });
@@ -67,7 +66,7 @@ export default Component.extend({
       index = end;
     });
 
-    text = slice(tweet, index);
+    text = Array.from(tweet).slice(index).join('');
     if (text) {
       parts.push({ text });
     }
