@@ -1,6 +1,6 @@
 {
   "name": "ember-twitter-entities",
-  "version": "3.0.0",
+  "version": "2.2.6",
   "description": "Renders Twitter Entities as Ember Components",
   "directories": {
     "doc": "doc",
