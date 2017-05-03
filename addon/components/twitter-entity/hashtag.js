@@ -8,7 +8,7 @@ export default Component.extend({
   tagName: '',
 
   href: computed(function() {
-    const hashtag = this.getAttr('entity').text;
+    const hashtag = this.get('entity.text');
     const params = jQuery.param({ q: `#${hashtag}` });
     return `https://twitter.com/search?${params}`;
   })

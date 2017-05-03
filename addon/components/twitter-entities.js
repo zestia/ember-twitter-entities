@@ -14,8 +14,8 @@ export default Component.extend({
   init() {
     this._super(...arguments);
 
-    const text     = this.getAttr('text');
-    const entities = this.getAttr('entities');
+    const text     = this.get('text');
+    const entities = this.get('entities');
 
     let parts = [];
     parts = this._entitiesToArray(entities);
@@ -97,6 +97,6 @@ export default Component.extend({
 
     const name = types[type];
 
-    return this.getAttr(`${name}-component`) || `twitter-entity/${name}`;
+    return this.get(`${name}-component`) || `twitter-entity/${name}`;
   }
 });

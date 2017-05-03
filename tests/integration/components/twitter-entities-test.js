@@ -152,7 +152,7 @@ test('passing in custom components', function(assert) {
   assert.expect(1);
 
   const CustomURL = Component.extend({
-    layout: hbs`{{entity.display_url}} ({{attrs.foo}})`
+    layout: hbs`{{entity.display_url}} ({{foo}})`
   });
 
   this.set('entities', {
