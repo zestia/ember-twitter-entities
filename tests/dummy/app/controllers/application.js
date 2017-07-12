@@ -1,16 +1,16 @@
 /* eslint-disable max-len, camelcase */
 
-import Controller from 'ember-controller';
+import Controller from '@ember/controller';
 
 export default Controller.extend({
-  urlsExample: 'Today, Twitter is updating embedded Tweets to enable a richer photo experience: https:\/\/t.co\/XdXRudPXH5',
+  urlsExample: 'Today, Twitter is updating embedded Tweets to enable a richer photo experience: https://t.co/XdXRudPXH5',
   urlsExampleEntities: {
     hashtags: [],
     symbols: [],
     urls: [{
-      url: 'https:\/\/t.co\/XdXRudPXH5',
-      expanded_url: 'https:\/\/blog.twitter.com\/2013\/rich-photo-experience-now-in-embedded-tweets-3',
-      display_url: 'blog.twitter.com\/2013\/rich-phot\u2026',
+      url: 'https://t.co/XdXRudPXH5',
+      expanded_url: 'https://blog.twitter.com/2013/rich-photo-experience-now-in-embedded-tweets-3',
+      display_url: 'blog.twitter.com/2013/rich-phot\u2026',
       indices: [80, 103]
     }],
     user_mentions: []
@@ -47,7 +47,7 @@ export default Controller.extend({
     }]
   },
 
-  mediaExample: 'Four more years. http:\/\/t.co\/bAJE6Vom',
+  mediaExample: 'Four more years. http://t.co/bAJE6Vom',
   mediaExampleEntities: {
     hashtags: [],
     symbols: [],
@@ -57,11 +57,11 @@ export default Controller.extend({
       id: 266031293949698048,
       id_str: '266031293949698048',
       indices: [17, 37],
-      media_url: 'http:\/\/pbs.twimg.com\/media\/A7EiDWcCYAAZT1D.jpg',
-      media_url_https: 'https:\/\/pbs.twimg.com\/media\/A7EiDWcCYAAZT1D.jpg',
-      url: 'http:\/\/t.co\/bAJE6Vom',
-      display_url: 'pic.twitter.com\/bAJE6Vom',
-      expanded_url: 'http:\/\/twitter.com\/BarackObama\/status\/266031293945503744\/photo\/1',
+      media_url: 'http://pbs.twimg.com/media/A7EiDWcCYAAZT1D.jpg',
+      media_url_https: 'https://pbs.twimg.com/media/A7EiDWcCYAAZT1D.jpg',
+      url: 'http://t.co/bAJE6Vom',
+      display_url: 'pic.twitter.com/bAJE6Vom',
+      expanded_url: 'http://twitter.com/BarackObama/status/266031293945503744/photo/1',
       type: 'photo',
       sizes: {
         medium: {

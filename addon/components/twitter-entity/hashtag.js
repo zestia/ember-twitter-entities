@@ -1,4 +1,4 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import computed from 'ember-improved-cp/read-only';
 import jQuery from 'jquery';
 import layout from '../../templates/components/twitter-entity/hashtag';

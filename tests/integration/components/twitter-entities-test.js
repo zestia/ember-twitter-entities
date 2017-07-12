@@ -1,9 +1,9 @@
 /* eslint-disable camelcase */
 
-import Component from 'ember-component';
+import Component from '@ember/component';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import { htmlSafe } from 'ember-string';
+import { htmlSafe } from '@ember/string';
 
 moduleForComponent(
   'twitter-entities',

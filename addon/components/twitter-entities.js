@@ -1,9 +1,9 @@
 /* eslint-disable camelcase */
 
 import Ember from 'ember';
-import Component from 'ember-component';
+import Component from '@ember/component';
 import layout from '../templates/components/twitter-entities';
-import { htmlSafe } from 'ember-string';
+import { htmlSafe } from '@ember/string';
 
 const { keys } = Object;
 const { compare, getWithDefault } = Ember;
