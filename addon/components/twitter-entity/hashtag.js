@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import computed from 'ember-improved-cp/read-only';
+import { computed } from '@ember/object';
 import jQuery from 'jquery';
 import layout from '../../templates/components/twitter-entity/hashtag';
 const { param } = jQuery;
