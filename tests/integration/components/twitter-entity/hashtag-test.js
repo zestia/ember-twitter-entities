@@ -1,9 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent(
-  'twitter-entity/hashtag',
-  'Integration | Component | twitter entity/hashtag', {
+moduleForComponent('twitter-entity/hashtag', {
   integration: true
 });
 

@@ -1,13 +1,11 @@
-/* eslint-disable camelcase */
+/* eslint-disable camelcase, indent */
 
 import Component from '@ember/component';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import { htmlSafe } from '@ember/string';
 
-moduleForComponent(
-  'twitter-entities',
-  'Integration | Component | twitter entities', {
+moduleForComponent('twitter-entities', {
   integration: true
 });
 

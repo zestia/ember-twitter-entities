@@ -1,1 +1,3 @@
-export { default } from 'ember-twitter-entities/components/twitter-entity/hashtag';
+export {
+  default
+} from 'ember-twitter-entities/components/twitter-entity/hashtag';

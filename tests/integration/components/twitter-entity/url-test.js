@@ -3,9 +3,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent(
-  'twitter-entity/url',
-  'Integration | Component | twitter entity/url', {
+moduleForComponent('twitter-entity/url', {
   integration: true
 });
 

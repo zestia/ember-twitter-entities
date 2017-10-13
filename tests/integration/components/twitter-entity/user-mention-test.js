@@ -3,9 +3,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent(
-  'twitter-entity/user-mention',
-  'Integration | Component | twitter entity/user mention', {
+moduleForComponent('twitter-entity/user-mention', {
   integration: true
 });
 
