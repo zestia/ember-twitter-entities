@@ -1,12 +1,11 @@
 /* eslint-disable camelcase */
 
-import Ember from 'ember';
 import Component from '@ember/component';
 import layout from '../templates/components/twitter-entities';
 import { htmlSafe } from '@ember/string';
-
+import { compare } from '@ember/utils';
+import { getWithDefault } from '@ember/object';
 const { keys } = Object;
-const { compare, getWithDefault } = Ember;
 
 export default Component.extend({
   layout,

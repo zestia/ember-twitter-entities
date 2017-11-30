@@ -1,4 +1,4 @@
-/* eslint-disable max-len, camelcase */
+/* eslint-disable max-len, camelcase, ember/avoid-leaking-state-in-ember-objects */
 
 import Controller from '@ember/controller';
 
