@@ -1,6 +1,6 @@
 {
-  "name": "ember-twitter-entities",
-  "version": "2.2.13",
+  "name": "@zestia/ember-twitter-entities",
+  "version": "2.2.14",
   "description": "Renders Twitter Entities as Ember Components",
   "directories": {
     "doc": "doc",
@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/amk221/ember-twitter-entities.git"
+    "url": "https://github.com/zestia/ember-twitter-entities.git"
   },
   "engines": {
     "node": ">= 4"
   },
-  "author": "Andrew Kirwin",
+  "author": "Zestia",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "2.6.0",
@@ -58,8 +58,8 @@
     "configPath": "tests/dummy/config"
   },
   "bugs": {
-    "url": "https://github.com/amk221/ember-twitter-entities/issues"
+    "url": "https://github.com/zestia/ember-twitter-entities/issues"
   },
-  "homepage": "https://github.com/amk221/ember-twitter-entities",
+  "homepage": "https://github.com/zestia/ember-twitter-entities",
   "configPath": "tests/dummy/config"
 }

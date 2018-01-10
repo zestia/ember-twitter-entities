@@ -1,3 +1,3 @@
 export {
   default
-} from 'ember-twitter-entities/components/twitter-entity/hashtag';
+} from '@zestia/ember-twitter-entities/components/twitter-entity/hashtag';

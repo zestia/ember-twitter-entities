@@ -2,5 +2,5 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-twitter-entities'
+  name: '@zestia/ember-twitter-entities'
 };
