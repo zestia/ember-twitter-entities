@@ -1,7 +1,8 @@
 import Component from '@ember/component';
+/* eslint-disable */
 import { computed } from '@ember/object';
+/* eslint-enable */
 import layout from '../../templates/components/twitter-entity/hashtag';
-
 
 export default Component.extend({
   layout,
