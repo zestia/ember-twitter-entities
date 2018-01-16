@@ -62,16 +62,16 @@ Alternatively, you can customise the component on a per-instance basis.
 
 ```handlebars
 {{twitter-entities text=tweet entities=entities
-  url-component='tweet-url'
-  hashtag-component='hash-tag'
-  user-mention-component='user-mention'
-  media-component='x-gallery/image'
+  url-component="tweet-url"
+  hashtag-component="hash-tag"
+  user-mention-component="user-mention"
+  media-component="x-gallery/image"
 ```
 You can even pass in a component
 
 ```handlebars
 {{twitter-entities text=text entities=entities
-  url-component=(component 'my-component' target='_blank')
+  url-component=(component "my-component" target="_blank")
 ```
 
 ### HTML in tweets

@@ -126,10 +126,10 @@ test('custom entity components', function(assert) {
     {{twitter-entities
       text=text
       entities=entities
-      url-component='custom-url'
-      hashtag-component='custom-hashtag'
-      user-mention-component='custom-user-mention'
-      media-component='custom-media'}}
+      url-component="custom-url"
+      hashtag-component="custom-hashtag"
+      user-mention-component="custom-user-mention"
+      media-component="custom-media"}}
   `);
 
   const $el = this.$('> div');
@@ -165,9 +165,9 @@ test('passing in custom components', function(assert) {
 
   this.render(hbs`
     {{twitter-entities
-      text='Hello World'
+      text="Hello World"
       entities=entities
-      url-component=(component 'custom-url' foo='bar')}}
+      url-component=(component "custom-url" foo="bar")}}
   `);
 
   assert.ok(this.$().html().match(/foo\.com \(bar\)/),
