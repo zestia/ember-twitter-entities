@@ -1,21 +1,23 @@
+import { module, test } from 'qunit';
 /* eslint-disable camelcase */
 
-import { moduleForComponent, test } from 'ember-qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('twitter-entity/url', {
-  integration: true
-});
+module('twitter-entity/url', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(1);
+  test('it renders', async function(assert) {
+    assert.expect(1);
 
-  this.set('urlEntity', {
-    url: 'http://t.co/foo',
-    display_url: 'foo.com'
+    this.set('urlEntity', {
+      url: 'http://t.co/foo',
+      display_url: 'foo.com'
+    });
+
+    await render(hbs`{{twitter-entity/url entity=urlEntity}}`);
+
+    assert.equal(this.$().html(), '<a href="http://t.co/foo">foo.com</a>');
   });
-
-  this.render(hbs`{{twitter-entity/url entity=urlEntity}}`);
-
-  assert.equal(this.$().html(), '<a href="http://t.co/foo">foo.com</a>');
 });

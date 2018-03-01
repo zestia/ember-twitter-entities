@@ -1,24 +1,26 @@
+import { module, test } from 'qunit';
 /* eslint-disable camelcase */
 
-import { moduleForComponent, test } from 'ember-qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('twitter-entity/media', {
-  integration: true
-});
+module('twitter-entity/media', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(1);
+  test('it renders', async function(assert) {
+    assert.expect(1);
 
-  this.set('mediaEntity', {
-    url: 'http://t.co/myimg',
-    display_url: 'pic.twitter.com/123'
+    this.set('mediaEntity', {
+      url: 'http://t.co/myimg',
+      display_url: 'pic.twitter.com/123'
+    });
+
+    await render(hbs`{{twitter-entity/media entity=mediaEntity}}`);
+
+    assert.equal(
+      this.$().html(),
+      '<a href="http://t.co/myimg">pic.twitter.com/123</a>'
+    );
   });
-
-  this.render(hbs`{{twitter-entity/media entity=mediaEntity}}`);
-
-  assert.equal(
-    this.$().html(),
-    '<a href="http://t.co/myimg">pic.twitter.com/123</a>'
-  );
 });

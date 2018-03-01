@@ -1,23 +1,25 @@
+import { module, test } from 'qunit';
 /* eslint-disable camelcase */
 
-import { moduleForComponent, test } from 'ember-qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('twitter-entity/user-mention', {
-  integration: true
-});
+module('twitter-entity/user-mention', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(1);
+  test('it renders', async function(assert) {
+    assert.expect(1);
 
-  this.set('userMentionEntity', {
-    screen_name: 'emberjs'
+    this.set('userMentionEntity', {
+      screen_name: 'emberjs'
+    });
+
+    await render(hbs`{{twitter-entity/user-mention entity=userMentionEntity}}`);
+
+    assert.equal(
+      this.$().html(),
+      '<a href="https://twitter.com/emberjs">@emberjs</a>'
+    );
   });
-
-  this.render(hbs`{{twitter-entity/user-mention entity=userMentionEntity}}`);
-
-  assert.equal(
-    this.$().html(),
-    '<a href="https://twitter.com/emberjs">@emberjs</a>'
-  );
 });
