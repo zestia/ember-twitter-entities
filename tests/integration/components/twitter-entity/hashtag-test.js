@@ -16,7 +16,7 @@ module('twitter-entity/hashtag', function(hooks) {
     await render(hbs`{{twitter-entity/hashtag entity=hashtagEntity}}`);
 
     assert.equal(
-      this.$().html(),
+      this.get('element').innerHTML,
       '<a href="https://twitter.com/search?q=%23foo">#foo</a>'
     );
   });

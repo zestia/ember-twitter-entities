@@ -19,7 +19,7 @@ module('twitter-entity/media', function(hooks) {
     await render(hbs`{{twitter-entity/media entity=mediaEntity}}`);
 
     assert.equal(
-      this.$().html(),
+      this.get('element').innerHTML,
       '<a href="http://t.co/myimg">pic.twitter.com/123</a>'
     );
   });
