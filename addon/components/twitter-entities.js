@@ -66,6 +66,7 @@ export default Component.extend({
     });
 
     text = Array.from(tweet).slice(index).join('');
+
     if (text) {
       parts.push({ text });
     }
@@ -78,6 +79,7 @@ export default Component.extend({
       if (part.text) {
         part.text = htmlSafe(part.text);
       }
+
       return part;
     });
   },
