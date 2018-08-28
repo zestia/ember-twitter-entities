@@ -15,7 +15,7 @@ module('twitter-entity/user-mention', function(hooks) {
       screen_name: 'emberjs'
     });
 
-    await render(hbs`{{twitter-entity/user-mention entity=userMentionEntity}}`);
+    await render(hbs`{{twitter-entity/user-mention entity=this.userMentionEntity}}`);
 
     assert.equal(
       this.element.innerHTML,

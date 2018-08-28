@@ -13,7 +13,7 @@ module('twitter-entity/hashtag', function(hooks) {
       text: 'foo'
     });
 
-    await render(hbs`{{twitter-entity/hashtag entity=hashtagEntity}}`);
+    await render(hbs`{{twitter-entity/hashtag entity=this.hashtagEntity}}`);
 
     assert.equal(
       this.element.innerHTML,

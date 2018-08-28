@@ -16,7 +16,7 @@ module('twitter-entity/url', function(hooks) {
       display_url: 'foo.com'
     });
 
-    await render(hbs`{{twitter-entity/url entity=urlEntity}}`);
+    await render(hbs`{{twitter-entity/url entity=this.urlEntity}}`);
 
     assert.equal(
       this.element.innerHTML,

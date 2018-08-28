@@ -16,7 +16,7 @@ module('twitter-entity/media', function(hooks) {
       display_url: 'pic.twitter.com/123'
     });
 
-    await render(hbs`{{twitter-entity/media entity=mediaEntity}}`);
+    await render(hbs`{{twitter-entity/media entity=this.mediaEntity}}`);
 
     assert.equal(
       this.element.innerHTML,
