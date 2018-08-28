@@ -55,7 +55,7 @@ module('twitter-entities', function(hooks) {
     await render(hbs`{{twitter-entities text=text entities=entities}}`);
 
     assert.equal(
-      this.get('element').querySelector('div').innerHTML,
+      this.element.querySelector('div').innerHTML,
 `url1: <a href="http://t.co/url1">url1.com</a>
 url2: <a href="http://t.co/url2">url2.com</a>
 hashtag1: <a href="https://twitter.com/search?q=%23hashtag1">#hashtag1</a>
@@ -130,7 +130,7 @@ trailing: text`
         media-component="custom-media"}}
     `);
 
-    const el = this.get('element').querySelector('div');
+    const el = this.element.querySelector('div');
 
     assert.equal(el.querySelectorAll('div')[0].innerHTML, 'custom url: foo.com');
     assert.equal(el.querySelectorAll('div')[1].innerHTML, 'custom hashtag: bar');
@@ -163,7 +163,7 @@ trailing: text`
         url-component=(component "custom-url" foo="bar")}}
     `);
 
-    assert.ok(this.get('element').innerHTML.match(/foo\.com \(bar\)/),
+    assert.ok(this.element.innerHTML.match(/foo\.com \(bar\)/),
       'component receives entity and attrs');
   });
 
@@ -182,7 +182,7 @@ trailing: text`
 
     await render(hbs`{{twitter-entities text=text entities=entities}}`);
 
-    assert.equal(this.get('element').querySelector('div').innerHTML,
+    assert.equal(this.element.querySelector('div').innerHTML,
       '<b>Visit</b> <a href="http://t.co/foo">foo.com</a>',
       'if the tweet is marked as safe, html can be output');
   });

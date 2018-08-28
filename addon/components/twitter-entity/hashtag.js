@@ -9,7 +9,7 @@ export default Component.extend({
   tagName: '',
 
   href: computed(function() {
-    const hashtag = `#${this.get('entity.text')}`;
+    const hashtag = `#${this.entity.text}`;
     return `https://twitter.com/search?q=${encodeURIComponent(hashtag)}`;
   })
 });
