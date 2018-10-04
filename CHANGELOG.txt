@@ -1,0 +1,9 @@
+# Changelog
+
+3.0.0
+
+* Change from snake case to camel case arguments
+
+< 3.0.0
+
+* Wasn't keeping a changelog

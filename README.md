@@ -31,7 +31,9 @@ entities: {
 ```
 
 ```handlebars
-{{twitter-entities text="visit emberjs.com" entities=entities}}
+<TwitterEntities
+  @text="visit emberjs.com"
+  @entities={{entities}} />
 ```
 
 The addon will render:
@@ -55,23 +57,27 @@ export default Component.extend({ layout });
 ```handlebars
 {{! components/twitter-entity/media/template.hbs }}
 
-<img src={{entity.media_url_https}} width={{entity.sizes.thumb.w}} height={{entity.sizes.thumb.h}}>
+<img src={{this.entity.media_url_https}} width={{this.entity.sizes.thumb.w}} height={{this.entity.sizes.thumb.h}}>
 ```
 
 Alternatively, you can customise the component on a per-instance basis.
 
 ```handlebars
-{{twitter-entities text=tweet entities=entities
-  url-component="tweet-url"
-  hashtag-component="hash-tag"
-  user-mention-component="user-mention"
-  media-component="x-gallery/image"
+<TwitterEntities
+  @text={{tweet}}
+  @entities={{entities}}
+  @urlComponent="tweet-url"
+  @hashtagComponent="hash-tag"
+  @userMentionComponent="user-mention"
+  @mediaComponent="x-gallery/image" />
 ```
 You can even pass in a component
 
 ```handlebars
-{{twitter-entities text=text entities=entities
-  url-component=(component "my-component" target="_blank")
+<TwitterEntities
+  @text={{text}}
+  @entities={{entities}}
+  @urlComponent={{component "my-component" target="_blank"}} />
 ```
 
 ### HTML in tweets
@@ -84,7 +90,7 @@ this.set('text', htmlSafe(tweet));
 ```
 
 ```handlebars
-{{twitter-entities text=text}}
+<TwitterEntities @text={{text}} />
 ```
 
 ```

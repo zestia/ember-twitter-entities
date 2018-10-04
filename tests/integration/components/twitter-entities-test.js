@@ -128,10 +128,10 @@ trailing: text`
       {{twitter-entities
         text=this.text
         entities=this.entities
-        url-component="custom-url"
-        hashtag-component="custom-hashtag"
-        user-mention-component="custom-user-mention"
-        media-component="custom-media"}}
+        urlComponent="custom-url"
+        hashtagComponent="custom-hashtag"
+        userMentionComponent="custom-user-mention"
+        mediaComponent="custom-media"}}
     `);
 
     const el = this.element.querySelector('div');
@@ -164,11 +164,11 @@ trailing: text`
       {{twitter-entities
         text="Hello World"
         entities=this.entities
-        url-component=(component "custom-url" foo="bar")}}
+        urlComponent=(component "custom-url" foo="bar")}}
     `);
 
     assert.ok(this.element.innerHTML.match(/foo\.com \(bar\)/),
-      'component receives entity and attrs');
+      'component receives entity and other arguments');
   });
 
   test('html safe tweets', async function(assert) {

@@ -6,6 +6,7 @@ import { htmlSafe } from '@ember/string';
 import { compare } from '@ember/utils';
 import { getWithDefault } from '@ember/object';
 const { keys } = Object;
+const { from } = Array;
 
 export default Component.extend({
   layout,
@@ -65,7 +66,7 @@ export default Component.extend({
       index = end;
     });
 
-    text = Array.from(tweet).slice(index).join('');
+    text = from(tweet).slice(index).join('');
 
     if (text) {
       parts.push({ text });
@@ -92,12 +93,12 @@ export default Component.extend({
     const types = {
       urls: 'url',
       hashtags: 'hashtag',
-      user_mentions: 'user-mention',
+      user_mentions: 'userMention',
       media: 'media'
     };
 
     const name = types[type];
 
-    return this[`${name}-component`] || `twitter-entity/${name}`;
+    return this[`${name}Component`] || `twitter-entity/${name}`;
   }
 });
