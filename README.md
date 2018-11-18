@@ -44,7 +44,13 @@ visit <a href="http://t.co/emberjs">emberjs.com</a>
 
 ### Customising
 
+<<<<<<< HEAD
 If you want to display twitter entities differently to the defaults, simply extend the component and provide a different template:
+=======
+* `npm run lint:hbs`
+* `npm run lint:js`
+* `npm run lint:js -- --fix`
+>>>>>>> 24692c0... message
 
 ```javascript
 // components/twitter-entity/media/component.js
