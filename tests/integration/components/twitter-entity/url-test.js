@@ -18,9 +18,6 @@ module('twitter-entity/url', function(hooks) {
 
     await render(hbs`{{twitter-entity/url entity=this.urlEntity}}`);
 
-    assert.equal(
-      this.element.innerHTML,
-      '<a href="http://t.co/foo">foo.com</a>'
-    );
+    assert.equal(this.element.innerHTML, '<a href="http://t.co/foo">foo.com</a>');
   });
 });

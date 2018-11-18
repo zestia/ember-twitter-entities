@@ -17,9 +17,6 @@ module('twitter-entity/user-mention', function(hooks) {
 
     await render(hbs`{{twitter-entity/user-mention entity=this.userMentionEntity}}`);
 
-    assert.equal(
-      this.element.innerHTML,
-      '<a href="https://twitter.com/emberjs">@emberjs</a>'
-    );
+    assert.equal(this.element.innerHTML, '<a href="https://twitter.com/emberjs">@emberjs</a>');
   });
 });

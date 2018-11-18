@@ -13,43 +13,56 @@ module('twitter-entities', function(hooks) {
   test('it renders', async function(assert) {
     assert.expect(1);
 
-    this.set('text', [
-      'url1: url1',
-      'url2: url2',
-      'hashtag1: hashtag1',
-      'user mention: user mention',
-      'media: media',
-      'html: <script>',
-      'emojis: 💥 hashtag2',
-      'trailing: text'
-    ].join('\n'));
+    this.set(
+      'text',
+      [
+        'url1: url1',
+        'url2: url2',
+        'hashtag1: hashtag1',
+        'user mention: user mention',
+        'media: media',
+        'html: <script>',
+        'emojis: 💥 hashtag2',
+        'trailing: text'
+      ].join('\n')
+    );
 
     this.set('entities', {
-      urls: [{
-        url: 'http://t.co/url2',
-        display_url: 'url2.com',
-        indices: [17, 21]
-      }, {
-        url: 'http://t.co/url1',
-        display_url: 'url1.com',
-        indices: [6, 10]
-      }],
-      hashtags: [{
-        text: 'hashtag2',
-        indices: [106, 114]
-      }, {
-        text: 'hashtag1',
-        indices: [32, 40]
-      }],
-      user_mentions: [{
-        screen_name: 'baz',
-        indices: [55, 67]
-      }],
-      media: [{
-        url: 'http://t.co/qux',
-        display_url: 'pic.twitter.com/qux',
-        indices: [75, 80]
-      }]
+      urls: [
+        {
+          url: 'http://t.co/url2',
+          display_url: 'url2.com',
+          indices: [17, 21]
+        },
+        {
+          url: 'http://t.co/url1',
+          display_url: 'url1.com',
+          indices: [6, 10]
+        }
+      ],
+      hashtags: [
+        {
+          text: 'hashtag2',
+          indices: [106, 114]
+        },
+        {
+          text: 'hashtag1',
+          indices: [32, 40]
+        }
+      ],
+      user_mentions: [
+        {
+          screen_name: 'baz',
+          indices: [55, 67]
+        }
+      ],
+      media: [
+        {
+          url: 'http://t.co/qux',
+          display_url: 'pic.twitter.com/qux',
+          indices: [75, 80]
+        }
+      ]
     });
 
     await render(hbs`
@@ -60,7 +73,7 @@ module('twitter-entities', function(hooks) {
 
     assert.equal(
       this.element.querySelector('div').innerHTML,
-`url1: <a href="http://t.co/url1">url1.com</a>
+      `url1: <a href="http://t.co/url1">url1.com</a>
 url2: <a href="http://t.co/url2">url2.com</a>
 hashtag1: <a href="https://twitter.com/search?q=%23hashtag1">#hashtag1</a>
 user mention: <a href="https://twitter.com/baz">@baz</a>
@@ -95,33 +108,39 @@ trailing: text`
     this.owner.register('component:custom-user-mention', CustomUserMention);
     this.owner.register('component:custom-media', CustomMedia);
 
-    this.set('text', [
-      'url: url',
-      'hashtag: hashtag',
-      'user mention: user mention',
-      'media: media'
-    ].join('\n'));
+    this.set(
+      'text',
+      ['url: url', 'hashtag: hashtag', 'user mention: user mention', 'media: media'].join('\n')
+    );
 
     this.set('entities', {
-      urls: [{
-        url: 'http://t.co/foo',
-        display_url: 'foo.com',
-        indices: [5, 8]
-      }],
-      hashtags: [{
-        text: 'bar',
-        indices: [18, 25]
-      }],
-      user_mentions: [{
-        screen_name: 'baz',
-        indices: [40, 52]
-      }],
-      media: [{
-        url: 'http://t.co/qux',
-        display_url: 'pic.twitter.com/qux',
-        media_url_https: 'https://pbs.twimg.com/media/qux.jpg',
-        indices: [60, 65]
-      }]
+      urls: [
+        {
+          url: 'http://t.co/foo',
+          display_url: 'foo.com',
+          indices: [5, 8]
+        }
+      ],
+      hashtags: [
+        {
+          text: 'bar',
+          indices: [18, 25]
+        }
+      ],
+      user_mentions: [
+        {
+          screen_name: 'baz',
+          indices: [40, 52]
+        }
+      ],
+      media: [
+        {
+          url: 'http://t.co/qux',
+          display_url: 'pic.twitter.com/qux',
+          media_url_https: 'https://pbs.twimg.com/media/qux.jpg',
+          indices: [60, 65]
+        }
+      ]
     });
 
     await render(hbs`
@@ -139,8 +158,10 @@ trailing: text`
     assert.equal(el.querySelectorAll('div')[0].innerHTML, 'custom url: foo.com');
     assert.equal(el.querySelectorAll('div')[1].innerHTML, 'custom hashtag: bar');
     assert.equal(el.querySelectorAll('div')[2].innerHTML, 'custom user mention: baz');
-    assert.equal(el.querySelectorAll('div')[3].innerHTML,
-      'custom media: <img src="https://pbs.twimg.com/media/qux.jpg">');
+    assert.equal(
+      el.querySelectorAll('div')[3].innerHTML,
+      'custom media: <img src="https://pbs.twimg.com/media/qux.jpg">'
+    );
   });
 
   test('passing in custom components', async function(assert) {
@@ -151,11 +172,13 @@ trailing: text`
     });
 
     this.set('entities', {
-      urls: [{
-        url: 'http://t.co/foo',
-        display_url: 'foo.com',
-        indices: [6, 11]
-      }]
+      urls: [
+        {
+          url: 'http://t.co/foo',
+          display_url: 'foo.com',
+          indices: [6, 11]
+        }
+      ]
     });
 
     this.owner.register('component:custom-url', CustomURL);
@@ -167,19 +190,23 @@ trailing: text`
         urlComponent=(component "custom-url" foo="bar")}}
     `);
 
-    assert.ok(this.element.innerHTML.match(/foo\.com \(bar\)/),
-      'component receives entity and other arguments');
+    assert.ok(
+      this.element.innerHTML.match(/foo\.com \(bar\)/),
+      'component receives entity and other arguments'
+    );
   });
 
   test('html safe tweets', async function(assert) {
     assert.expect(1);
 
     this.set('entities', {
-      urls: [{
-        url: 'http://t.co/foo',
-        display_url: 'foo.com',
-        indices: [13, 20]
-      }]
+      urls: [
+        {
+          url: 'http://t.co/foo',
+          display_url: 'foo.com',
+          indices: [13, 20]
+        }
+      ]
     });
 
     this.set('text', htmlSafe('<b>Visit</b> foo.com'));
@@ -190,8 +217,10 @@ trailing: text`
         entities=this.entities}}
     `);
 
-    assert.equal(this.element.querySelector('div').innerHTML,
+    assert.equal(
+      this.element.querySelector('div').innerHTML,
       '<b>Visit</b> <a href="http://t.co/foo">foo.com</a>',
-      'if the tweet is marked as safe, html can be output');
+      'if the tweet is marked as safe, html can be output'
+    );
   });
 });

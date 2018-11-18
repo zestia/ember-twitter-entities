@@ -15,9 +15,6 @@ module('twitter-entity/hashtag', function(hooks) {
 
     await render(hbs`{{twitter-entity/hashtag entity=this.hashtagEntity}}`);
 
-    assert.equal(
-      this.element.innerHTML,
-      '<a href="https://twitter.com/search?q=%23foo">#foo</a>'
-    );
+    assert.equal(this.element.innerHTML, '<a href="https://twitter.com/search?q=%23foo">#foo</a>');
   });
 });

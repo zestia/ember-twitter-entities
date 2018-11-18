@@ -18,9 +18,6 @@ module('twitter-entity/media', function(hooks) {
 
     await render(hbs`{{twitter-entity/media entity=this.mediaEntity}}`);
 
-    assert.equal(
-      this.element.innerHTML,
-      '<a href="http://t.co/myimg">pic.twitter.com/123</a>'
-    );
+    assert.equal(this.element.innerHTML, '<a href="http://t.co/myimg">pic.twitter.com/123</a>');
   });
 });

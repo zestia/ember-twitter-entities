@@ -14,7 +14,7 @@ export default Component.extend({
   init() {
     this._super(...arguments);
 
-    const text     = this.text;
+    const text = this.text;
     const entities = this.entities;
 
     let parts = [];
@@ -49,14 +49,16 @@ export default Component.extend({
 
   _textToArray(tweet = '', entityParts = []) {
     const parts = [];
-    let text  = '';
+    let text = '';
     let index = 0;
 
     tweet = tweet.toString();
 
     entityParts.forEach(part => {
       const [start, end] = part.entity.indices;
-      text = Array.from(tweet).slice(index, start).join('');
+      text = Array.from(tweet)
+        .slice(index, start)
+        .join('');
 
       if (text) {
         parts.push({ text });
@@ -66,7 +68,9 @@ export default Component.extend({
       index = end;
     });
 
-    text = from(tweet).slice(index).join('');
+    text = from(tweet)
+      .slice(index)
+      .join('');
 
     if (text) {
       parts.push({ text });
