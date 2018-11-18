@@ -5,6 +5,7 @@ import Controller from '@ember/controller';
 export default Controller.extend({
   urlsExample:
     'Today, Twitter is updating embedded Tweets to enable a richer photo experience: https://t.co/XdXRudPXH5',
+
   urlsExampleEntities: {
     hashtags: [],
     symbols: [],
@@ -21,6 +22,7 @@ export default Controller.extend({
   },
 
   hashtagsExample: 'Loved #devnestSF',
+
   hashtagsExampleEntities: {
     hashtags: [
       {
@@ -35,6 +37,7 @@ export default Controller.extend({
 
   userMentionsExample:
     'We\u2019re excited to work closely with the external technical community and continue @twittereng\u2019s work with open source. cc @TwitterOSS',
+
   userMentionsExampleEntities: {
     hashtags: [],
     symbols: [],
@@ -58,6 +61,7 @@ export default Controller.extend({
   },
 
   mediaExample: 'Four more years. http://t.co/bAJE6Vom',
+
   mediaExampleEntities: {
     hashtags: [],
     symbols: [],
