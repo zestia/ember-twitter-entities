@@ -47,18 +47,18 @@
     "ember-qunit": "4.1.2",
     "ember-resolver": "5.0.1",
     "ember-source-channel-url": "1.1.0",
-    "ember-source": "~3.5.1",
+    "ember-source": "3.5.1",
     "ember-template-lint": "1.0.0-beta.6",
     "ember-try": "1.1.0",
     "eslint": "5.9.0",
     "loader.js": "4.7.0",
-    "prettier": "1.15.2"
+    "prettier": "1.15.2",
+    "qunit-dom": "0.8.0"
   },
   "dependencies": {
     "ember-cli-babel": "^6.16.0",
     "ember-cli-htmlbars": "^3.0.0",
-    "ember-named-arguments-polyfill": "^1.0.0",
-    "qunit-dom": "^0.8.0"
+    "ember-named-arguments-polyfill": "^1.0.0"
   },
   "keywords": [
     "ember-addon",
