@@ -88,19 +88,19 @@ trailing: text`
     assert.expect(4);
 
     const CustomURL = Component.extend({
-      layout: hbs`custom url: {{entity.display_url}}`
+      layout: hbs`custom url: {{@entity.display_url}}`
     });
 
     const CustomHashtag = Component.extend({
-      layout: hbs`custom hashtag: {{entity.text}}`
+      layout: hbs`custom hashtag: {{@entity.text}}`
     });
 
     const CustomUserMention = Component.extend({
-      layout: hbs`custom user mention: {{entity.screen_name}}`
+      layout: hbs`custom user mention: {{@entity.screen_name}}`
     });
 
     const CustomMedia = Component.extend({
-      layout: hbs`custom media: <img src={{entity.media_url_https}}>`
+      layout: hbs`custom media: <img src={{@entity.media_url_https}}>`
     });
 
     this.owner.register('component:custom-url', CustomURL);

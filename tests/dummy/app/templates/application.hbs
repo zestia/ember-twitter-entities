@@ -1,24 +1,21 @@
 <h1>@zestia/ember-cli-twitter-entities</h1>
 
 <p>
-  {{twitter-entities text="Hello World"}}
+  <TwitterEntities @text="Hello World" />
 </p>
 
 <p>
-  {{twitter-entities text=urlsExample entities=urlsExampleEntities}}
+  <TwitterEntities @text={{this.urlsExample}} @entities={{this.urlsExampleEntities}} />
 </p>
 
 <p>
-  {{twitter-entities text=hashtagsExample entities=hashtagsExampleEntities}}
+  <TwitterEntities @text={{this.hashtagsExample}} entities={{this.hashtagsExampleEntities}} />
 </p>
 
 <p>
-  {{twitter-entities
-    text=userMentionsExample
-    entities=userMentionsExampleEntities
-  }}
+  <TwitterEntities @text={{this.userMentionsExample}} @entities={{this.userMentionsExampleEntities}} />
 </p>
 
 <p>
-  {{twitter-entities text=mediaExample entities=mediaExampleEntities}}
+  <TwitterEntities @text={{this.mediaExample}} @entities={{this.mediaExampleEntities}} />
 </p>
