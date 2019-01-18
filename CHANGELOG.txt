@@ -1,9 +1,9 @@
 # Changelog
 
-3.0.0
+2.2.20
 
-* Change from snake case to camel case arguments
+* Upgrade ember-cli
 
-< 3.0.0
+< 2.2.20
 
 * Wasn't keeping a changelog
