@@ -66,9 +66,9 @@ module('twitter-entities', function(hooks) {
     });
 
     await render(hbs`
-      {{twitter-entities
-        text=this.text
-        entities=this.entities}}
+      <TwitterEntities
+        @text={{this.text}}
+        @entities={{this.entities}} />
     `);
 
     assert.equal(
@@ -144,13 +144,13 @@ trailing: text`
     });
 
     await render(hbs`
-      {{twitter-entities
-        text=this.text
-        entities=this.entities
-        urlComponent="custom-url"
-        hashtagComponent="custom-hashtag"
-        userMentionComponent="custom-user-mention"
-        mediaComponent="custom-media"}}
+      <TwitterEntities
+        @text={{this.text}}
+        @entities={{this.entities}}
+        @urlComponent="custom-url"
+        @hashtagComponent="custom-hashtag"
+        @userMentionComponent="custom-user-mention"
+        @mediaComponent="custom-media" />
     `);
 
     const el = this.element.querySelector('div');
@@ -184,10 +184,10 @@ trailing: text`
     this.owner.register('component:custom-url', CustomURL);
 
     await render(hbs`
-      {{twitter-entities
-        text="Hello World"
-        entities=this.entities
-        urlComponent=(component "custom-url" foo="bar")}}
+      <TwitterEntities
+        @text="Hello World"
+        @entities={{this.entities}}
+        @urlComponent={{component "custom-url" foo="bar"}} />
     `);
 
     assert.ok(
@@ -212,9 +212,9 @@ trailing: text`
     this.set('text', htmlSafe('<b>Visit</b> foo.com'));
 
     await render(hbs`
-      {{twitter-entities
-        text=this.text
-        entities=this.entities}}
+      <TwitterEntities
+        @text={{this.text}}
+        @entities={{this.entities}} />
     `);
 
     assert.equal(
