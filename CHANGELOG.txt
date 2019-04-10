@@ -1,5 +1,9 @@
 # Changelog
 
+* 2.2.22
+
+* Adding more linting
+
 2.2.21
 
 * Upgrade dependancies
@@ -10,4 +14,4 @@
 
 < 2.2.20
 
-* Wasn't keeping a changelog
+* No changelog
