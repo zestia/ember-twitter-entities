@@ -4,7 +4,7 @@ import Component from '@ember/component';
 import layout from '../templates/components/twitter-entities';
 import { htmlSafe } from '@ember/string';
 import { compare } from '@ember/utils';
-import { getWithDefault } from '@ember/object';
+import { getWithDefault, set } from '@ember/object';
 const { keys } = Object;
 const { from } = Array;
 
@@ -25,7 +25,7 @@ export default Component.extend({
       parts = this._makeSafe(parts);
     }
 
-    this.set('parts', parts);
+    set(this, 'parts', parts);
   },
 
   _entitiesToArray(entities = {}) {
