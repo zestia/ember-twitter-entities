@@ -4,6 +4,7 @@ import Component from '@ember/component';
 import layout from '../templates/components/twitter-entities';
 import { htmlSafe } from '@ember/string';
 import { compare } from '@ember/utils';
+import { camelize } from '@ember/string';
 import { getWithDefault, set } from '@ember/object';
 const { keys } = Object;
 const { from } = Array;
@@ -97,12 +98,13 @@ export default Component.extend({
     const types = {
       urls: 'url',
       hashtags: 'hashtag',
-      user_mentions: 'userMention',
+      user_mentions: 'user-mention',
       media: 'media'
     };
 
     const name = types[type];
+    const argName = camelize(`${name}Component`);
 
-    return this[`${name}Component`] || `twitter-entity/${name}`;
+    return this[argName] || `twitter-entity/${name}`;
   }
 });
