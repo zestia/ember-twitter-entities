@@ -2,9 +2,8 @@
 
 import Component from '@ember/component';
 import layout from '../templates/components/twitter-entities';
-import { htmlSafe } from '@ember/string';
+import { htmlSafe, camelize } from '@ember/string';
 import { compare } from '@ember/utils';
-import { camelize } from '@ember/string';
 import { getWithDefault, set } from '@ember/object';
 const { keys } = Object;
 const { from } = Array;
