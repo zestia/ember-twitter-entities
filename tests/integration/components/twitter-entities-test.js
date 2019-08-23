@@ -110,7 +110,12 @@ trailing: text`
 
     this.set(
       'text',
-      ['url: url', 'hashtag: hashtag', 'user mention: user mention', 'media: media'].join('\n')
+      [
+        'url: url',
+        'hashtag: hashtag',
+        'user mention: user mention',
+        'media: media'
+      ].join('\n')
     );
 
     this.set('entities', {
@@ -155,9 +160,18 @@ trailing: text`
 
     const el = this.element.querySelector('div');
 
-    assert.equal(el.querySelectorAll('div')[0].innerHTML, 'custom url: foo.com');
-    assert.equal(el.querySelectorAll('div')[1].innerHTML, 'custom hashtag: bar');
-    assert.equal(el.querySelectorAll('div')[2].innerHTML, 'custom user mention: baz');
+    assert.equal(
+      el.querySelectorAll('div')[0].innerHTML,
+      'custom url: foo.com'
+    );
+    assert.equal(
+      el.querySelectorAll('div')[1].innerHTML,
+      'custom hashtag: bar'
+    );
+    assert.equal(
+      el.querySelectorAll('div')[2].innerHTML,
+      'custom user mention: baz'
+    );
     assert.equal(
       el.querySelectorAll('div')[3].innerHTML,
       'custom media: <img src="https://pbs.twimg.com/media/qux.jpg">'

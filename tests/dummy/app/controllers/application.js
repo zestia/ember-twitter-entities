@@ -76,7 +76,8 @@ export default Controller.extend({
         media_url_https: 'https://pbs.twimg.com/media/A7EiDWcCYAAZT1D.jpg',
         url: 'http://t.co/bAJE6Vom',
         display_url: 'pic.twitter.com/bAJE6Vom',
-        expanded_url: 'http://twitter.com/BarackObama/status/266031293945503744/photo/1',
+        expanded_url:
+          'http://twitter.com/BarackObama/status/266031293945503744/photo/1',
         type: 'photo',
         sizes: {
           medium: {
