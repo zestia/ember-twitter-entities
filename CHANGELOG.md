@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.25
+
+- Upgrade dependencies
+
 ## 2.2.24
 
 - Upgrade dependencies
