@@ -11,6 +11,8 @@ const { from } = Array;
 export default Component.extend({
   layout,
 
+  tagName: '',
+
   init() {
     this._super(...arguments);
 

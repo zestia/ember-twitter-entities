@@ -72,7 +72,7 @@ module('twitter-entities', function(hooks) {
     `);
 
     assert.equal(
-      this.element.querySelector('div').innerHTML,
+      this.element.innerHTML.trim(),
       `url1: <a href="http://t.co/url1">url1.com</a>
 url2: <a href="http://t.co/url2">url2.com</a>
 hashtag1: <a href="https://twitter.com/search?q=%23hashtag1">#hashtag1</a>
@@ -158,22 +158,23 @@ trailing: text`
         @mediaComponent="custom-media" />
     `);
 
-    const el = this.element.querySelector('div');
-
     assert.equal(
-      el.querySelectorAll('div')[0].innerHTML,
+      this.element.querySelectorAll('div')[0].innerHTML,
       'custom url: foo.com'
     );
+
     assert.equal(
-      el.querySelectorAll('div')[1].innerHTML,
+      this.element.querySelectorAll('div')[1].innerHTML,
       'custom hashtag: bar'
     );
+
     assert.equal(
-      el.querySelectorAll('div')[2].innerHTML,
+      this.element.querySelectorAll('div')[2].innerHTML,
       'custom user mention: baz'
     );
+
     assert.equal(
-      el.querySelectorAll('div')[3].innerHTML,
+      this.element.querySelectorAll('div')[3].innerHTML,
       'custom media: <img src="https://pbs.twimg.com/media/qux.jpg">'
     );
   });
@@ -232,7 +233,7 @@ trailing: text`
     `);
 
     assert.equal(
-      this.element.querySelector('div').innerHTML,
+      this.element.innerHTML.trim(),
       '<b>Visit</b> <a href="http://t.co/foo">foo.com</a>',
       'if the tweet is marked as safe, html can be output'
     );
