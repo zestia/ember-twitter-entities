@@ -2,7 +2,8 @@
 
 ## 2.2.26
 
-- Tagless component
+- Now a tagless component
+- Upgrade dependencies
 
 ## 2.2.25
 
