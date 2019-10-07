@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.27
+
+- Upgrade dependencies
+
 ## 2.2.26
 
 - Now a tagless component
