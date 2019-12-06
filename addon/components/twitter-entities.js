@@ -8,13 +8,12 @@ import { getWithDefault, set } from '@ember/object';
 const { keys } = Object;
 const { from } = Array;
 
-export default Component.extend({
-  layout,
-
-  tagName: '',
+export default class TwitterEntitiesComponent extends Component {
+  layout = layout;
+  tagName = '';
 
   init() {
-    this._super(...arguments);
+    super.init(...arguments);
 
     const text = this.text;
     const entities = this.entities;
@@ -28,7 +27,7 @@ export default Component.extend({
     }
 
     set(this, 'parts', parts);
-  },
+  }
 
   _entitiesToArray(entities = {}) {
     const parts = [];
@@ -47,7 +46,7 @@ export default Component.extend({
     });
 
     return parts;
-  },
+  }
 
   _textToArray(tweet = '', entityParts = []) {
     const parts = [];
@@ -79,7 +78,7 @@ export default Component.extend({
     }
 
     return parts;
-  },
+  }
 
   _makeSafe(parts) {
     return parts.map(part => {
@@ -89,11 +88,11 @@ export default Component.extend({
 
       return part;
     });
-  },
+  }
 
   _isHTMLSafe(string) {
     return string && typeof string.toHTML === 'function';
-  },
+  }
 
   _componentForType(type) {
     const types = {
@@ -108,4 +107,4 @@ export default Component.extend({
 
     return this[argName] || `twitter-entity/${name}`;
   }
-});
+}
