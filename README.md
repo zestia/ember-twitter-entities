@@ -1,6 +1,24 @@
 # @zestia/ember-twitter-entities
 
-<a href="https://badge.fury.io/js/%40zestia%2Fember-twitter-entities"><img src="https://badge.fury.io/js/%40zestia%2Fember-twitter-entities.svg" alt="npm version" height="18"></a> &nbsp; <a href="http://travis-ci.org/zestia/ember-twitter-entities"><img src="https://travis-ci.org/zestia/ember-twitter-entities.svg?branch=master"></a> &nbsp; <a href="https://david-dm.org/zestia/ember-twitter-entities#badge-embed"><img src="https://david-dm.org/zestia/ember-twitter-entities.svg"></a> &nbsp; <a href="https://david-dm.org/zestia/ember-twitter-entities#dev-badge-embed"><img src="https://david-dm.org/zestia/ember-twitter-entities/dev-status.svg"></a> &nbsp; <a href="https://emberobserver.com/addons/@zestia/ember-twitter-entities"><img src="https://emberobserver.com/badges/-zestia-ember-twitter-entities.svg"></a>
+<p>
+  <a href="http://travis-ci.org/zestia/ember-twitter-entities">
+    <img src="https://travis-ci.org/zestia/ember-twitter-entities.svg?branch=master">
+  </a>
+
+  <a href="https://david-dm.org/zestia/ember-twitter-entities#badge-embed">
+    <img src="https://david-dm.org/zestia/ember-twitter-entities.svg">
+  </a>
+
+  <a href="https://david-dm.org/zestia/ember-twitter-entities#dev-badge-embed">
+    <img src="https://david-dm.org/zestia/ember-twitter-entities/dev-status.svg">
+  </a>
+
+  <a href="https://emberobserver.com/addons/@zestia/ember-twitter-entities">
+    <img src="https://emberobserver.com/badges/-zestia-ember-twitter-entities.svg">
+  </a>
+
+  <img src="https://img.shields.io/badge/Ember-%3E%3D%203.11-brightgreen">
+</p>
 
 This Ember CLI addon parses [Twitter Entities](https://dev.twitter.com/overview/api/entities-in-twitter-objects) from the Twitter API and renders a them as Ember Components.
 
