@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.0
+
+- Drop support for < Ember 3.11
+
 ## 2.2.28
 
 - Upgrade dependencies
