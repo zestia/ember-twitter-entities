@@ -85,7 +85,7 @@ this.set('text', htmlSafe(tweet));
 ```
 
 ```handlebars
-<TwitterEntities @text={{text}} />
+<TwitterEntities @text={{this.text}} />
 ```
 
 ```
