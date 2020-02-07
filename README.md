@@ -52,7 +52,8 @@ entities: {
 ```handlebars
 <TwitterEntities
   @text="visit emberjs.com"
-  @entities={{this.entities}} />
+  @entities={{this.entities}}
+/>
 ```
 
 The addon will render:
@@ -72,7 +73,8 @@ You can customise what components are used to render each type of entity:
   @urlComponent={{component "x-link" target="_blank"}}
   @hashtagComponent="hash-tag"
   @userMentionComponent="user-mention"
-  @mediaComponent="x-gallery/image" />
+  @mediaComponent="x-gallery/image"
+/>
 ```
 
 ## HTML in tweets
