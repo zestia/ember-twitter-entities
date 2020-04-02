@@ -7,10 +7,10 @@ import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import { htmlSafe } from '@ember/string';
 
-module('twitter-entities', function(hooks) {
+module('twitter-entities', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
+  test('it renders', async function (assert) {
     assert.expect(1);
 
     this.set(
@@ -23,7 +23,7 @@ module('twitter-entities', function(hooks) {
         'media: media',
         'html: <script>',
         'emojis: 💥 hashtag2',
-        'trailing: text'
+        'trailing: text',
       ].join('\n')
     );
 
@@ -32,37 +32,37 @@ module('twitter-entities', function(hooks) {
         {
           url: 'http://t.co/url2',
           display_url: 'url2.com',
-          indices: [17, 21]
+          indices: [17, 21],
         },
         {
           url: 'http://t.co/url1',
           display_url: 'url1.com',
-          indices: [6, 10]
-        }
+          indices: [6, 10],
+        },
       ],
       hashtags: [
         {
           text: 'hashtag2',
-          indices: [106, 114]
+          indices: [106, 114],
         },
         {
           text: 'hashtag1',
-          indices: [32, 40]
-        }
+          indices: [32, 40],
+        },
       ],
       user_mentions: [
         {
           screen_name: 'baz',
-          indices: [55, 67]
-        }
+          indices: [55, 67],
+        },
       ],
       media: [
         {
           url: 'http://t.co/qux',
           display_url: 'pic.twitter.com/qux',
-          indices: [75, 80]
-        }
-      ]
+          indices: [75, 80],
+        },
+      ],
     });
 
     await render(hbs`
@@ -84,23 +84,23 @@ trailing: text`
     );
   });
 
-  test('custom entity components', async function(assert) {
+  test('custom entity components', async function (assert) {
     assert.expect(4);
 
     const CustomURL = Component.extend({
-      layout: hbs`custom url: {{@entity.display_url}}`
+      layout: hbs`custom url: {{@entity.display_url}}`,
     });
 
     const CustomHashtag = Component.extend({
-      layout: hbs`custom hashtag: {{@entity.text}}`
+      layout: hbs`custom hashtag: {{@entity.text}}`,
     });
 
     const CustomUserMention = Component.extend({
-      layout: hbs`custom user mention: {{@entity.screen_name}}`
+      layout: hbs`custom user mention: {{@entity.screen_name}}`,
     });
 
     const CustomMedia = Component.extend({
-      layout: hbs`custom media: <img src={{@entity.media_url_https}}>`
+      layout: hbs`custom media: <img src={{@entity.media_url_https}} alt="test">`,
     });
 
     this.owner.register('component:custom-url', CustomURL);
@@ -114,7 +114,7 @@ trailing: text`
         'url: url',
         'hashtag: hashtag',
         'user mention: user mention',
-        'media: media'
+        'media: media',
       ].join('\n')
     );
 
@@ -123,29 +123,29 @@ trailing: text`
         {
           url: 'http://t.co/foo',
           display_url: 'foo.com',
-          indices: [5, 8]
-        }
+          indices: [5, 8],
+        },
       ],
       hashtags: [
         {
           text: 'bar',
-          indices: [18, 25]
-        }
+          indices: [18, 25],
+        },
       ],
       user_mentions: [
         {
           screen_name: 'baz',
-          indices: [40, 52]
-        }
+          indices: [40, 52],
+        },
       ],
       media: [
         {
           url: 'http://t.co/qux',
           display_url: 'pic.twitter.com/qux',
           media_url_https: 'https://pbs.twimg.com/media/qux.jpg',
-          indices: [60, 65]
-        }
-      ]
+          indices: [60, 65],
+        },
+      ],
     });
 
     await render(hbs`
@@ -179,11 +179,11 @@ trailing: text`
     );
   });
 
-  test('passing in custom components', async function(assert) {
+  test('passing in custom components', async function (assert) {
     assert.expect(1);
 
     const CustomURL = Component.extend({
-      layout: hbs`{{@entity.display_url}} ({{@foo}})`
+      layout: hbs`{{@entity.display_url}} ({{@foo}})`,
     });
 
     this.set('entities', {
@@ -191,9 +191,9 @@ trailing: text`
         {
           url: 'http://t.co/foo',
           display_url: 'foo.com',
-          indices: [6, 11]
-        }
-      ]
+          indices: [6, 11],
+        },
+      ],
     });
 
     this.owner.register('component:custom-url', CustomURL);
@@ -211,7 +211,7 @@ trailing: text`
     );
   });
 
-  test('html safe tweets', async function(assert) {
+  test('html safe tweets', async function (assert) {
     assert.expect(1);
 
     this.set('entities', {
@@ -219,9 +219,9 @@ trailing: text`
         {
           url: 'http://t.co/foo',
           display_url: 'foo.com',
-          indices: [13, 20]
-        }
-      ]
+          indices: [13, 20],
+        },
+      ],
     });
 
     this.set('text', htmlSafe('<b>Visit</b> foo.com'));

@@ -5,18 +5,18 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-module('twitter-entity/user-mention', function(hooks) {
+module('twitter-entity/user-mention', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
+  test('it renders', async function (assert) {
     assert.expect(1);
 
     this.set('userMentionEntity', {
-      screen_name: 'emberjs'
+      screen_name: 'emberjs',
     });
 
     await render(
-      hbs`{{twitter-entity/user-mention entity=this.userMentionEntity}}`
+      hbs`<TwitterEntity::UserMention @entity={{this.userMentionEntity}} />`
     );
 
     assert.equal(

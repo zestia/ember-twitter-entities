@@ -5,18 +5,18 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-module('twitter-entity/media', function(hooks) {
+module('twitter-entity/media', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
+  test('it renders', async function (assert) {
     assert.expect(1);
 
     this.set('mediaEntity', {
       url: 'http://t.co/myimg',
-      display_url: 'pic.twitter.com/123'
+      display_url: 'pic.twitter.com/123',
     });
 
-    await render(hbs`{{twitter-entity/media entity=this.mediaEntity}}`);
+    await render(hbs`<TwitterEntity::Media @entity={{this.mediaEntity}} />`);
 
     assert.equal(
       this.element.innerHTML,

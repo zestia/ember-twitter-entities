@@ -3,17 +3,19 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-module('twitter-entity/hashtag', function(hooks) {
+module('twitter-entity/hashtag', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
+  test('it renders', async function (assert) {
     assert.expect(1);
 
     this.set('hashtagEntity', {
-      text: 'foo'
+      text: 'foo',
     });
 
-    await render(hbs`{{twitter-entity/hashtag entity=this.hashtagEntity}}`);
+    await render(
+      hbs`<TwitterEntity::Hashtag @entity={{this.hashtagEntity}} />`
+    );
 
     assert.equal(
       this.element.innerHTML,
