@@ -33,10 +33,10 @@ export default class TwitterEntitiesComponent extends Component {
   _entitiesToArray(entities = {}) {
     const parts = [];
 
-    keys(entities).forEach(key => {
+    keys(entities).forEach((key) => {
       const typeEntities = getWithDefault(entities, key, []);
 
-      typeEntities.forEach(entity => {
+      typeEntities.forEach((entity) => {
         const component = this._componentForType(key);
         parts.push({ component, entity });
       });
@@ -54,11 +54,9 @@ export default class TwitterEntitiesComponent extends Component {
 
     tweet = tweet.toString();
 
-    entityParts.forEach(part => {
+    entityParts.forEach((part) => {
       const [start, end] = part.entity.indices;
-      text = from(tweet)
-        .slice(index, start)
-        .join('');
+      text = from(tweet).slice(index, start).join('');
 
       if (text) {
         parts.push({ text });
@@ -68,9 +66,7 @@ export default class TwitterEntitiesComponent extends Component {
       index = end;
     });
 
-    text = from(tweet)
-      .slice(index)
-      .join('');
+    text = from(tweet).slice(index).join('');
 
     if (text) {
       parts.push({ text });
@@ -80,7 +76,7 @@ export default class TwitterEntitiesComponent extends Component {
   }
 
   _markAsSafe(parts) {
-    return parts.map(part => {
+    return parts.map((part) => {
       if (part.text) {
         part.text = htmlSafe(part.text);
       }
@@ -98,7 +94,7 @@ export default class TwitterEntitiesComponent extends Component {
       urls: 'url',
       hashtags: 'hashtag',
       user_mentions: 'user-mention',
-      media: 'media'
+      media: 'media',
     };
 
     const name = types[type];
