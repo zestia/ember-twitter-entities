@@ -175,7 +175,7 @@ trailing: text`
 
     assert.equal(
       this.element.querySelectorAll('div')[3].innerHTML,
-      'custom media: <img src="https://pbs.twimg.com/media/qux.jpg">'
+      'custom media: <img src="https://pbs.twimg.com/media/qux.jpg" alt="test">'
     );
   });
 
