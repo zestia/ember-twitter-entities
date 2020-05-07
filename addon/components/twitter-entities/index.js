@@ -1,20 +1,12 @@
-/* eslint-disable camelcase */
-
-import Component from '@ember/component';
-import layout from '../templates/components/twitter-entities';
+import Component from '@glimmer/component';
 import { htmlSafe, camelize } from '@ember/string';
 import { compare } from '@ember/utils';
-import { computed, getWithDefault } from '@ember/object';
 const { keys } = Object;
 const { from } = Array;
 
 export default class TwitterEntitiesComponent extends Component {
-  layout = layout;
-  tagName = '';
-
-  @computed('text', 'entities')
   get parts() {
-    return this._generateParts(this.text, this.entities);
+    return this._generateParts(this.args.text, this.args.entities);
   }
 
   _generateParts(text, entities) {
@@ -34,7 +26,7 @@ export default class TwitterEntitiesComponent extends Component {
     const parts = [];
 
     keys(entities).forEach((key) => {
-      const typeEntities = getWithDefault(entities, key, []);
+      const typeEntities = entities[key] || [];
 
       typeEntities.forEach((entity) => {
         const component = this._componentForType(key);
@@ -100,6 +92,6 @@ export default class TwitterEntitiesComponent extends Component {
     const name = types[type];
     const argName = camelize(`${name}Component`);
 
-    return this[argName] || `twitter-entity/${name}`;
+    return this.args[argName] || `twitter-entity/${name}`;
   }
 }

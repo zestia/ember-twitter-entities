@@ -1,1 +1,1 @@
-export { default } from '@zestia/ember-twitter-entities/components/twitter-entity/user-mention';
+export { default } from '@zestia/ember-twitter-entities/components/twitter-entity/user-mention/index';

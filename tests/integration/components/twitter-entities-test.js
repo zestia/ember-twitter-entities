@@ -1,6 +1,3 @@
-/* eslint-disable camelcase, indent */
-
-import Component from '@ember/component';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
@@ -87,26 +84,15 @@ trailing: text`
   test('custom entity components', async function (assert) {
     assert.expect(4);
 
-    const CustomURL = Component.extend({
-      layout: hbs`custom url: {{@entity.display_url}}`,
-    });
+    const url = hbs`<span>custom url: {{@entity.display_url}}</span>`;
+    const hashtag = hbs`<span>custom hashtag: {{@entity.text}}</span>`;
+    const userMention = hbs`<span>custom user mention: {{@entity.screen_name}}</span>`;
+    const media = hbs`<span>custom media: <img src={{@entity.media_url_https}} alt="test"></span>`;
 
-    const CustomHashtag = Component.extend({
-      layout: hbs`custom hashtag: {{@entity.text}}`,
-    });
-
-    const CustomUserMention = Component.extend({
-      layout: hbs`custom user mention: {{@entity.screen_name}}`,
-    });
-
-    const CustomMedia = Component.extend({
-      layout: hbs`custom media: <img src={{@entity.media_url_https}} alt="test">`,
-    });
-
-    this.owner.register('component:custom-url', CustomURL);
-    this.owner.register('component:custom-hashtag', CustomHashtag);
-    this.owner.register('component:custom-user-mention', CustomUserMention);
-    this.owner.register('component:custom-media', CustomMedia);
+    this.owner.register('template:components/custom-url', url);
+    this.owner.register('template:components/custom-hashtag', hashtag);
+    this.owner.register('template:components/custom-user-mention', userMention);
+    this.owner.register('template:components/custom-media', media);
 
     this.set(
       'text',
@@ -159,22 +145,22 @@ trailing: text`
     `);
 
     assert.equal(
-      this.element.querySelectorAll('div')[0].innerHTML,
+      this.element.querySelectorAll('span')[0].innerHTML,
       'custom url: foo.com'
     );
 
     assert.equal(
-      this.element.querySelectorAll('div')[1].innerHTML,
+      this.element.querySelectorAll('span')[1].innerHTML,
       'custom hashtag: bar'
     );
 
     assert.equal(
-      this.element.querySelectorAll('div')[2].innerHTML,
+      this.element.querySelectorAll('span')[2].innerHTML,
       'custom user mention: baz'
     );
 
     assert.equal(
-      this.element.querySelectorAll('div')[3].innerHTML,
+      this.element.querySelectorAll('span')[3].innerHTML,
       'custom media: <img src="https://pbs.twimg.com/media/qux.jpg" alt="test">'
     );
   });
@@ -182,9 +168,7 @@ trailing: text`
   test('passing in custom components', async function (assert) {
     assert.expect(1);
 
-    const CustomURL = Component.extend({
-      layout: hbs`{{@entity.display_url}} ({{@foo}})`,
-    });
+    const url = hbs`{{@entity.display_url}} ({{@foo}})`;
 
     this.set('entities', {
       urls: [
@@ -196,7 +180,7 @@ trailing: text`
       ],
     });
 
-    this.owner.register('component:custom-url', CustomURL);
+    this.owner.register('template:components/custom-url', url);
 
     await render(hbs`
       <TwitterEntities

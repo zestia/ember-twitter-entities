@@ -1,6 +1,4 @@
 import { module, test } from 'qunit';
-/* eslint-disable camelcase */
-
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
