@@ -1,6 +1,6 @@
 {
   "name": "@zestia/ember-twitter-entities",
-  "version": "3.0.3",
+  "version": "4.0.0",
   "description": "Renders Twitter Entities as Ember Components",
   "directories": {
     "doc": "doc",
