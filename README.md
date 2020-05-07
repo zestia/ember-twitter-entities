@@ -83,7 +83,7 @@ If the tweet you are rendering is already encoded, flag it as html-safe to preve
 
 ```javascript
 const tweet = 'This tweet contains &lt;br&gt; HTML';
-this.set('text', htmlSafe(tweet));
+this.text = htmlSafe(tweet);
 ```
 
 ```handlebars
