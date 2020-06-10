@@ -1,10 +1,17 @@
 import Component from '@glimmer/component';
-import { htmlSafe, camelize } from '@ember/string';
+import { htmlSafe } from '@ember/string';
 import { compare } from '@ember/utils';
 const { keys } = Object;
 const { from } = Array;
 
 export default class TwitterEntitiesComponent extends Component {
+  componentMap = {
+    urls: 'url',
+    hashtags: 'hashtag',
+    user_mentions: 'userMention',
+    media: 'media'
+  };
+
   get parts() {
     return this._generateParts(this.args.text, this.args.entities);
   }
@@ -82,13 +89,6 @@ export default class TwitterEntitiesComponent extends Component {
   }
 
   _componentForType(type) {
-    const types = {
-      urls: 'url',
-      hashtags: 'hashtag',
-      user_mentions: 'userMention',
-      media: 'media'
-    };
-
-    return this.args[types[type]];
+    return this.args[this.componentMap[type]];
   }
 }
