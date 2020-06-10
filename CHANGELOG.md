@@ -2,7 +2,7 @@
 
 ## 5.0.0
 
-- Components must be passed in, otherwise that type of entity will be considered optional
+- Components must be passed in
 - Component argument names have changed (see Readme)
 
 ## 4.0.0
