@@ -1,7 +1,7 @@
 {{#each this.parts as |part|}}
   {{#if part.text~}}
     {{part.text}}
-  {{~else~}}
-    {{component part.component entity=part.entity}}
+  {{~else if part.Component~}}
+    <part.Component @entity={{part.entity}} />
   {{~/if}}
 {{/each}}

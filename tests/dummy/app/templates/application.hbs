@@ -23,13 +23,15 @@
   <TwitterEntities
     @text={{this.urlsExample}}
     @entities={{this.urlsExampleEntities}}
+    @url={{component "twitter-entity/url"}}
   />
 </p>
 
 <p>
   <TwitterEntities
     @text={{this.hashtagsExample}}
-    entities={{this.hashtagsExampleEntities}}
+    @entities={{this.hashtagsExampleEntities}}
+    @hashtag={{component "twitter-entity/hashtag"}}
   />
 </p>
 
@@ -37,6 +39,7 @@
   <TwitterEntities
     @text={{this.userMentionsExample}}
     @entities={{this.userMentionsExampleEntities}}
+    @userMention={{component "twitter-entity/user-mention"}}
   />
 </p>
 
@@ -44,5 +47,6 @@
   <TwitterEntities
     @text={{this.mediaExample}}
     @entities={{this.mediaExampleEntities}}
+    @media={{component "twitter-entity/media"}}
   />
 </p>

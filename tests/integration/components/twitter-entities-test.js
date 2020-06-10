@@ -20,7 +20,7 @@ module('twitter-entities', function (hooks) {
         'media: media',
         'html: <script>',
         'emojis: 💥 hashtag2',
-        'trailing: text',
+        'trailing: text'
       ].join('\n')
     );
 
@@ -29,43 +29,48 @@ module('twitter-entities', function (hooks) {
         {
           url: 'http://t.co/url2',
           display_url: 'url2.com',
-          indices: [17, 21],
+          indices: [17, 21]
         },
         {
           url: 'http://t.co/url1',
           display_url: 'url1.com',
-          indices: [6, 10],
-        },
+          indices: [6, 10]
+        }
       ],
       hashtags: [
         {
           text: 'hashtag2',
-          indices: [106, 114],
+          indices: [106, 114]
         },
         {
           text: 'hashtag1',
-          indices: [32, 40],
-        },
+          indices: [32, 40]
+        }
       ],
       user_mentions: [
         {
           screen_name: 'baz',
-          indices: [55, 67],
-        },
+          indices: [55, 67]
+        }
       ],
       media: [
         {
           url: 'http://t.co/qux',
           display_url: 'pic.twitter.com/qux',
-          indices: [75, 80],
-        },
-      ],
+          indices: [75, 80]
+        }
+      ]
     });
 
     await render(hbs`
       <TwitterEntities
         @text={{this.text}}
-        @entities={{this.entities}} />
+        @entities={{this.entities}}
+        @url={{component "twitter-entity/url"}}
+        @hashtag={{component "twitter-entity/hashtag"}}
+        @userMention={{component "twitter-entity/user-mention"}}
+        @media={{component "twitter-entity/media"}}
+      />
     `);
 
     assert.equal(
@@ -81,117 +86,29 @@ trailing: text`
     );
   });
 
-  test('custom entity components', async function (assert) {
-    assert.expect(4);
-
-    const url = hbs`<span>custom url: {{@entity.display_url}}</span>`;
-    const hashtag = hbs`<span>custom hashtag: {{@entity.text}}</span>`;
-    const userMention = hbs`<span>custom user mention: {{@entity.screen_name}}</span>`;
-    const media = hbs`<span>custom media: <img src={{@entity.media_url_https}} alt="test"></span>`;
-
-    this.owner.register('template:components/custom-url', url);
-    this.owner.register('template:components/custom-hashtag', hashtag);
-    this.owner.register('template:components/custom-user-mention', userMention);
-    this.owner.register('template:components/custom-media', media);
-
-    this.set(
-      'text',
-      [
-        'url: url',
-        'hashtag: hashtag',
-        'user mention: user mention',
-        'media: media',
-      ].join('\n')
-    );
-
-    this.set('entities', {
-      urls: [
-        {
-          url: 'http://t.co/foo',
-          display_url: 'foo.com',
-          indices: [5, 8],
-        },
-      ],
-      hashtags: [
-        {
-          text: 'bar',
-          indices: [18, 25],
-        },
-      ],
-      user_mentions: [
-        {
-          screen_name: 'baz',
-          indices: [40, 52],
-        },
-      ],
-      media: [
-        {
-          url: 'http://t.co/qux',
-          display_url: 'pic.twitter.com/qux',
-          media_url_https: 'https://pbs.twimg.com/media/qux.jpg',
-          indices: [60, 65],
-        },
-      ],
-    });
-
-    await render(hbs`
-      <TwitterEntities
-        @text={{this.text}}
-        @entities={{this.entities}}
-        @urlComponent="custom-url"
-        @hashtagComponent="custom-hashtag"
-        @userMentionComponent="custom-user-mention"
-        @mediaComponent="custom-media" />
-    `);
-
-    assert.equal(
-      this.element.querySelectorAll('span')[0].innerHTML,
-      'custom url: foo.com'
-    );
-
-    assert.equal(
-      this.element.querySelectorAll('span')[1].innerHTML,
-      'custom hashtag: bar'
-    );
-
-    assert.equal(
-      this.element.querySelectorAll('span')[2].innerHTML,
-      'custom user mention: baz'
-    );
-
-    assert.equal(
-      this.element.querySelectorAll('span')[3].innerHTML,
-      'custom media: <img src="https://pbs.twimg.com/media/qux.jpg" alt="test">'
-    );
-  });
-
-  test('passing in custom components', async function (assert) {
+  test('optional behaviour', async function (assert) {
     assert.expect(1);
 
-    const url = hbs`{{@entity.display_url}} ({{@foo}})`;
-
     this.set('entities', {
-      urls: [
+      media: [
         {
           url: 'http://t.co/foo',
-          display_url: 'foo.com',
-          indices: [6, 11],
-        },
-      ],
+          display_url: 'pic.twitter.com/foo',
+          indices: [12, 27]
+        }
+      ]
     });
-
-    this.owner.register('template:components/custom-url', url);
 
     await render(hbs`
       <TwitterEntities
-        @text="Hello World"
-        @entities={{this.entities}}
-        @urlComponent={{component "custom-url" foo="bar"}} />
+        @text="Amazing pic http://t.co/foo"
+        @entities={{this.entities}} />
     `);
 
-    assert.ok(
-      this.element.innerHTML.match(/foo\.com \(bar\)/),
-      'component receives entity and other arguments'
+    assert.equal(
+      this.element.innerHTML.trim(),
+      'Amazing pic <!---->',
+      'does not render entity if there is no component to render it'
     );
   });
 
@@ -203,9 +120,9 @@ trailing: text`
         {
           url: 'http://t.co/foo',
           display_url: 'foo.com',
-          indices: [13, 20],
-        },
-      ],
+          indices: [13, 20]
+        }
+      ]
     });
 
     this.set('text', htmlSafe('<b>Visit</b> foo.com'));
@@ -213,7 +130,8 @@ trailing: text`
     await render(hbs`
       <TwitterEntities
         @text={{this.text}}
-        @entities={{this.entities}} />
+        @entities={{this.entities}}
+        @url={{component "twitter-entity/url"}} />
     `);
 
     assert.equal(

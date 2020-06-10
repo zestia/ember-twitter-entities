@@ -27,10 +27,10 @@ export default class TwitterEntitiesComponent extends Component {
 
     keys(entities).forEach((key) => {
       const typeEntities = entities[key] || [];
+      const Component = this._componentForType(key);
 
       typeEntities.forEach((entity) => {
-        const component = this._componentForType(key);
-        parts.push({ component, entity });
+        parts.push({ Component, entity });
       });
     });
 
@@ -85,13 +85,10 @@ export default class TwitterEntitiesComponent extends Component {
     const types = {
       urls: 'url',
       hashtags: 'hashtag',
-      user_mentions: 'user-mention',
-      media: 'media',
+      user_mentions: 'userMention',
+      media: 'media'
     };
 
-    const name = types[type];
-    const argName = camelize(`${name}Component`);
-
-    return this.args[argName] || `twitter-entity/${name}`;
+    return this.args[types[type]];
   }
 }

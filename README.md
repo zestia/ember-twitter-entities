@@ -34,7 +34,7 @@ This addon requires the [Babel Polyfill](https://github.com/babel/ember-cli-babe
 
 ## Example
 
-Given the following:
+Given the following entities from the Twitter API:
 
 ```javascript
 entities: {
@@ -53,6 +53,7 @@ entities: {
 <TwitterEntities
   @text="visit emberjs.com"
   @entities={{this.entities}}
+  @url={{component "twitter-entity/url"}}
 />
 ```
 
@@ -64,16 +65,16 @@ visit <a href="http://t.co/emberjs">emberjs.com</a>
 
 ## Customising
 
-You can customise what components are used to render each type of entity:
+You can customise what components are used to render each type of entity, or use the built in ones.
 
 ```handlebars
 <TwitterEntities
   @text={{this.tweet}}
   @entities={{this.entities}}
-  @urlComponent={{component "x-link" target="_blank"}}
-  @hashtagComponent="hash-tag"
-  @userMentionComponent="user-mention"
-  @mediaComponent="x-gallery/image"
+  @url={{component "twitter-entity/url"}}
+  @hashtag={{component "twitter-entity/hash-tag"}}
+  @userMention={{component "twitter-entity/user-mention"}}
+  @media={{component "twitter-entity/media"}}
 />
 ```
 

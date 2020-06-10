@@ -1,5 +1,10 @@
 # Changelog
 
+## 5.0.0
+
+- Components must be passed in, otherwise that type of entity will be considered optional
+- Component argument names have changed (see Readme)
+
 ## 4.0.0
 
 - Glimmerise component
