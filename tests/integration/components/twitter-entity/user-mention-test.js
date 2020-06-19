@@ -10,7 +10,7 @@ module('twitter-entity/user-mention', function (hooks) {
     assert.expect(1);
 
     this.set('userMentionEntity', {
-      screen_name: 'emberjs',
+      screen_name: 'emberjs'
     });
 
     await render(

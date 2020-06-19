@@ -11,7 +11,7 @@ module('twitter-entity/url', function (hooks) {
 
     this.set('urlEntity', {
       url: 'http://t.co/foo',
-      display_url: 'foo.com',
+      display_url: 'foo.com'
     });
 
     await render(hbs`<TwitterEntity::Url @entity={{this.urlEntity}} />`);

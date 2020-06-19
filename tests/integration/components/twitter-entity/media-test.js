@@ -11,7 +11,7 @@ module('twitter-entity/media', function (hooks) {
 
     this.set('mediaEntity', {
       url: 'http://t.co/myimg',
-      display_url: 'pic.twitter.com/123',
+      display_url: 'pic.twitter.com/123'
     });
 
     await render(hbs`<TwitterEntity::Media @entity={{this.mediaEntity}} />`);

@@ -10,7 +10,7 @@ module('twitter-entity/hashtag', function (hooks) {
     assert.expect(1);
 
     this.set('hashtagEntity', {
-      text: 'foo',
+      text: 'foo'
     });
 
     await render(
