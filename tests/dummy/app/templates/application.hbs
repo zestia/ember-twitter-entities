@@ -16,33 +16,44 @@
 </a>
 
 <p>
-  <TwitterEntities @text="Hello World" />
+  Each Twitter entity is rendered as a component. Below shows the default components, but you are free to override these.
 </p>
 
-<p>
-  <TwitterEntities
-    @text={{this.urlsExample}}
-    @entities={{this.urlsExampleEntities}}
-  />
-</p>
-
-<p>
-  <TwitterEntities
-    @text={{this.hashtagsExample}}
-    entities={{this.hashtagsExampleEntities}}
-  />
-</p>
-
-<p>
-  <TwitterEntities
-    @text={{this.userMentionsExample}}
-    @entities={{this.userMentionsExampleEntities}}
-  />
-</p>
-
-<p>
-  <TwitterEntities
-    @text={{this.mediaExample}}
-    @entities={{this.mediaExampleEntities}}
-  />
-</p>
+<dl>
+  <dt>
+    A tweet with URLs
+  </dt>
+  <dd>
+    <TwitterEntities
+      @text={{this.urlsExample}}
+      @entities={{this.urlsExampleEntities}}
+    />
+  </dd>
+  <dt>
+    A tweet with hashtags
+  </dt>
+  <dd>
+    <TwitterEntities
+      @text={{this.hashtagsExample}}
+      @entities={{this.hashtagsExampleEntities}}
+    />
+  </dd>
+  <dt>
+    A tweet with user mentions
+  </dt>
+  <dd>
+    <TwitterEntities
+      @text={{this.userMentionsExample}}
+      @entities={{this.userMentionsExampleEntities}}
+    />
+  </dd>
+  <dt>
+    A tweet with media
+  </dt>
+  <dd>
+    <TwitterEntities
+      @text={{this.mediaExample}}
+      @entities={{this.mediaExampleEntities}}
+    />
+  </dd>
+</dl>

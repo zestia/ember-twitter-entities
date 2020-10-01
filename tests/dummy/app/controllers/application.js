@@ -7,8 +7,6 @@ export default Controller.extend({
     'Today, Twitter is updating embedded Tweets to enable a richer photo experience: https://t.co/XdXRudPXH5',
 
   urlsExampleEntities: {
-    hashtags: [],
-    symbols: [],
     urls: [
       {
         url: 'https://t.co/XdXRudPXH5',
@@ -17,8 +15,7 @@ export default Controller.extend({
         display_url: 'blog.twitter.com/2013/rich-phot\u2026',
         indices: [80, 103]
       }
-    ],
-    user_mentions: []
+    ]
   },
 
   hashtagsExample: 'Loved #devnestSF',
@@ -29,19 +26,13 @@ export default Controller.extend({
         text: 'devnestSF',
         indices: [6, 16]
       }
-    ],
-    symbols: [],
-    urls: [],
-    user_mentions: []
+    ]
   },
 
   userMentionsExample:
     'We\u2019re excited to work closely with the external technical community and continue @twittereng\u2019s work with open source. cc @TwitterOSS',
 
   userMentionsExampleEntities: {
-    hashtags: [],
-    symbols: [],
-    urls: [],
     user_mentions: [
       {
         screen_name: 'TwitterEng',
@@ -63,10 +54,6 @@ export default Controller.extend({
   mediaExample: 'Four more years. http://t.co/bAJE6Vom',
 
   mediaExampleEntities: {
-    hashtags: [],
-    symbols: [],
-    urls: [],
-    user_mentions: [],
     media: [
       {
         id: 266031293949698048,

@@ -28,6 +28,10 @@ This Ember CLI addon parses [Twitter Entities](https://dev.twitter.com/overview/
 ember install @zestia/ember-twitter-entities
 ```
 
+## Demo
+
+https://zestia.github.io/ember-twitter-entities/
+
 ## Notes
 
 This addon requires the [Babel Polyfill](https://github.com/babel/ember-cli-babel#polyfill) to correctly handle emojis.
