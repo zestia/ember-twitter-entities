@@ -9,10 +9,10 @@ module('twitter-entity/url', function (hooks) {
   test('it renders', async function (assert) {
     assert.expect(1);
 
-    this.set('urlEntity', {
+    this.urlEntity = {
       url: 'http://t.co/foo',
       display_url: 'foo.com'
-    });
+    };
 
     await render(hbs`<TwitterEntity::Url @entity={{this.urlEntity}} />`);
 

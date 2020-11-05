@@ -10,21 +10,18 @@ module('twitter-entities', function (hooks) {
   test('it renders', async function (assert) {
     assert.expect(1);
 
-    this.set(
-      'text',
-      [
-        'url1: url1',
-        'url2: url2',
-        'hashtag1: hashtag1',
-        'user mention: user mention',
-        'media: media',
-        'html: <script>',
-        'emojis: 💥 hashtag2',
-        'trailing: text'
-      ].join('\n')
-    );
+    this.text = [
+      'url1: url1',
+      'url2: url2',
+      'hashtag1: hashtag1',
+      'user mention: user mention',
+      'media: media',
+      'html: <script>',
+      'emojis: 💥 hashtag2',
+      'trailing: text'
+    ].join('\n');
 
-    this.set('entities', {
+    this.entities = {
       urls: [
         {
           url: 'http://t.co/url2',
@@ -60,7 +57,7 @@ module('twitter-entities', function (hooks) {
           indices: [75, 80]
         }
       ]
-    });
+    };
 
     await render(hbs`
       <TwitterEntities
@@ -94,17 +91,14 @@ trailing: text`
     this.owner.register('template:components/custom-user-mention', userMention);
     this.owner.register('template:components/custom-media', media);
 
-    this.set(
-      'text',
-      [
-        'url: url',
-        'hashtag: hashtag',
-        'user mention: user mention',
-        'media: media'
-      ].join('\n')
-    );
+    this.text = [
+      'url: url',
+      'hashtag: hashtag',
+      'user mention: user mention',
+      'media: media'
+    ].join('\n');
 
-    this.set('entities', {
+    this.entities = {
       urls: [
         {
           url: 'http://t.co/foo',
@@ -132,7 +126,7 @@ trailing: text`
           indices: [60, 65]
         }
       ]
-    });
+    };
 
     await render(hbs`
       <TwitterEntities
@@ -170,7 +164,7 @@ trailing: text`
 
     const url = hbs`{{@entity.display_url}} ({{@foo}})`;
 
-    this.set('entities', {
+    this.entities = {
       urls: [
         {
           url: 'http://t.co/foo',
@@ -178,7 +172,7 @@ trailing: text`
           indices: [6, 11]
         }
       ]
-    });
+    };
 
     this.owner.register('template:components/custom-url', url);
 
@@ -198,7 +192,9 @@ trailing: text`
   test('html safe tweets', async function (assert) {
     assert.expect(1);
 
-    this.set('entities', {
+    this.text = htmlSafe('<b>Visit</b> foo.com');
+
+    this.entities = {
       urls: [
         {
           url: 'http://t.co/foo',
@@ -206,9 +202,7 @@ trailing: text`
           indices: [13, 20]
         }
       ]
-    });
-
-    this.set('text', htmlSafe('<b>Visit</b> foo.com'));
+    };
 
     await render(hbs`
       <TwitterEntities

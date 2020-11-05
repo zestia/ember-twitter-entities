@@ -9,9 +9,9 @@ module('twitter-entity/user-mention', function (hooks) {
   test('it renders', async function (assert) {
     assert.expect(1);
 
-    this.set('userMentionEntity', {
+    this.userMentionEntity = {
       screen_name: 'emberjs'
-    });
+    };
 
     await render(
       hbs`<TwitterEntity::UserMention @entity={{this.userMentionEntity}} />`

@@ -9,9 +9,9 @@ module('twitter-entity/hashtag', function (hooks) {
   test('it renders', async function (assert) {
     assert.expect(1);
 
-    this.set('hashtagEntity', {
+    this.hashtagEntity = {
       text: 'foo'
-    });
+    };
 
     await render(
       hbs`<TwitterEntity::Hashtag @entity={{this.hashtagEntity}} />`
