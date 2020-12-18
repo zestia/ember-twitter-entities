@@ -1,12 +1,10 @@
-/* eslint-disable max-len, camelcase, ember/avoid-leaking-state-in-ember-objects */
-
 import Controller from '@ember/controller';
 
-export default Controller.extend({
-  urlsExample:
-    'Today, Twitter is updating embedded Tweets to enable a richer photo experience: https://t.co/XdXRudPXH5',
+export default class ApplicationController extends Controller {
+  urlsExample =
+    'Today, Twitter is updating embedded Tweets to enable a richer photo experience: https://t.co/XdXRudPXH5';
 
-  urlsExampleEntities: {
+  urlsExampleEntities = {
     urls: [
       {
         url: 'https://t.co/XdXRudPXH5',
@@ -16,23 +14,23 @@ export default Controller.extend({
         indices: [80, 103]
       }
     ]
-  },
+  };
 
-  hashtagsExample: 'Loved #devnestSF',
+  hashtagsExample = 'Loved #devnestSF';
 
-  hashtagsExampleEntities: {
+  hashtagsExampleEntities = {
     hashtags: [
       {
         text: 'devnestSF',
         indices: [6, 16]
       }
     ]
-  },
+  };
 
-  userMentionsExample:
-    'We\u2019re excited to work closely with the external technical community and continue @twittereng\u2019s work with open source. cc @TwitterOSS',
+  userMentionsExample =
+    'We\u2019re excited to work closely with the external technical community and continue @twittereng\u2019s work with open source. cc @TwitterOSS';
 
-  userMentionsExampleEntities: {
+  userMentionsExampleEntities = {
     user_mentions: [
       {
         screen_name: 'TwitterEng',
@@ -49,11 +47,11 @@ export default Controller.extend({
         indices: [121, 132]
       }
     ]
-  },
+  };
 
-  mediaExample: 'Four more years. http://t.co/bAJE6Vom',
+  mediaExample = 'Four more years. http://t.co/bAJE6Vom';
 
-  mediaExampleEntities: {
+  mediaExampleEntities = {
     media: [
       {
         id: 266031293949698048,
@@ -90,5 +88,5 @@ export default Controller.extend({
         }
       }
     ]
-  }
-});
+  };
+}
