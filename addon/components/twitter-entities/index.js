@@ -1,5 +1,6 @@
 import Component from '@glimmer/component';
-import { htmlSafe, camelize } from '@ember/string';
+import { camelize } from '@ember/string';
+import { htmlSafe } from '@ember/template';
 import { compare } from '@ember/utils';
 const { keys } = Object;
 const { from } = Array;
