@@ -1,5 +1,14 @@
 # Changelog
 
+## 5.0.0
+
+- Renames component arguments to `Url`, `Hashtag`, `UserMention` and `Media`
+- Upgrade dependencies
+
+## 4.0.8
+
+- Upgrade dependencies
+
 ## 4.0.7
 
 - Upgrade dependencies

@@ -66,6 +66,8 @@ The addon will render:
 visit <a href="http://t.co/emberjs">emberjs.com</a>
 ```
 
+...using the built in components for each entity type.
+
 ## Customising
 
 You can customise what components are used to render each type of entity:
@@ -74,10 +76,10 @@ You can customise what components are used to render each type of entity:
 <TwitterEntities
   @text={{this.tweet}}
   @entities={{this.entities}}
-  @urlComponent={{component "x-link" target="_blank"}}
-  @hashtagComponent="hash-tag"
-  @userMentionComponent="user-mention"
-  @mediaComponent="x-gallery/image"
+  @Url={{component "hyperlink" target="_blank"}}
+  @Hashtag={{component "hash-tag"}}
+  @UserMention={{component "user-mention"}}
+  @Media={{component "gallery/image"}}
 />
 ```
 

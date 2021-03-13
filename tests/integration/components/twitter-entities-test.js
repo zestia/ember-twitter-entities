@@ -62,7 +62,8 @@ module('twitter-entities', function (hooks) {
     await render(hbs`
       <TwitterEntities
         @text={{this.text}}
-        @entities={{this.entities}} />
+        @entities={{this.entities}}
+      />
     `);
 
     assert.equal(
@@ -132,10 +133,11 @@ trailing: text`
       <TwitterEntities
         @text={{this.text}}
         @entities={{this.entities}}
-        @urlComponent="custom-url"
-        @hashtagComponent="custom-hashtag"
-        @userMentionComponent="custom-user-mention"
-        @mediaComponent="custom-media" />
+        @Url={{component "custom-url"}}
+        @Hashtag={{component "custom-hashtag"}}
+        @UserMention={{component "custom-user-mention"}}
+        @Media={{component "custom-media"}}
+      />
     `);
 
     assert.equal(
@@ -180,7 +182,8 @@ trailing: text`
       <TwitterEntities
         @text="Hello World"
         @entities={{this.entities}}
-        @urlComponent={{component "custom-url" foo="bar"}} />
+        @Url={{component "custom-url" foo="bar"}}
+      />
     `);
 
     assert.ok(

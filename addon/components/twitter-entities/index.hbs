@@ -2,6 +2,8 @@
   {{#if part.text~}}
     {{part.text}}
   {{~else~}}
-    {{component part.component entity=part.entity}}
+    {{~#let (component part.Component) as |Part|~}}
+      <Part @entity={{part.entity}} />
+    {{~/let~}}
   {{~/if}}
 {{/each}}

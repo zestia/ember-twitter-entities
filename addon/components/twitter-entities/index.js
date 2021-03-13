@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import { camelize } from '@ember/string';
+import { camelize, capitalize } from '@ember/string';
 import { htmlSafe } from '@ember/template';
 import { compare } from '@ember/utils';
 const { keys } = Object;
@@ -30,8 +30,8 @@ export default class TwitterEntitiesComponent extends Component {
       const typeEntities = entities[key] || [];
 
       typeEntities.forEach((entity) => {
-        const component = this._componentForType(key);
-        parts.push({ component, entity });
+        const Component = this._componentForType(key);
+        parts.push({ Component, entity });
       });
     });
 
@@ -91,8 +91,8 @@ export default class TwitterEntitiesComponent extends Component {
     };
 
     const name = types[type];
-    const argName = camelize(`${name}Component`);
+    const argName = capitalize(camelize(name));
 
-    return this.args[argName] || `twitter-entity/${name}`;
+    return this.args[argName] ?? `twitter-entity/${name}`;
   }
 }
