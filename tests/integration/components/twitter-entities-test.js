@@ -210,13 +210,40 @@ trailing: text`
     await render(hbs`
       <TwitterEntities
         @text={{this.text}}
-        @entities={{this.entities}} />
+        @entities={{this.entities}}
+      />
     `);
 
     assert.equal(
       this.element.innerHTML.trim(),
       '<b>Visit</b> <a href="http://t.co/foo">foo.com</a>',
       'if the tweet is marked as safe, html can be output'
+    );
+  });
+
+  test('missing component', async function (assert) {
+    assert.expect(1);
+
+    this.entities = {
+      symbols: [
+        {
+          text: 'TWTR',
+          indices: [5, 10]
+        }
+      ]
+    };
+
+    await render(hbs`
+      <TwitterEntities
+        @text="test $TWTR"
+        @entities={{this.entities}}
+      />
+    `);
+
+    assert.equal(
+      this.element.innerHTML.trim(),
+      'test $TWTR',
+      'still renders text if no backing component is provided for the given entities'
     );
   });
 });

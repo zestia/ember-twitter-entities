@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import { camelize, capitalize } from '@ember/string';
-import { htmlSafe } from '@ember/template';
+import { htmlSafe, isHTMLSafe } from '@ember/template';
 import { compare } from '@ember/utils';
 const { keys } = Object;
 const { from } = Array;
@@ -10,20 +10,16 @@ export default class TwitterEntitiesComponent extends Component {
     return this._generateParts(this.args.text, this.args.entities);
   }
 
-  _generateParts(text, entities) {
-    let parts = [];
-
-    parts = this._entitiesToArray(entities);
-    parts = this._textToArray(text, parts);
-
-    if (this._isHTMLSafe(text)) {
-      parts = this._markAsSafe(parts);
-    }
-
-    return parts;
+  get isHTMLSafe() {
+    return isHTMLSafe(this.args.text);
   }
 
-  _entitiesToArray(entities = {}) {
+  _generateParts(text, entities) {
+    const componentParts = this._componentParts(entities);
+    return this._restParts(text, componentParts);
+  }
+
+  _componentParts(entities = {}) {
     const parts = [];
 
     keys(entities).forEach((key) => {
@@ -40,46 +36,43 @@ export default class TwitterEntitiesComponent extends Component {
     return parts;
   }
 
-  _textToArray(tweet = '', entityParts = []) {
-    const parts = [];
-    let text = '';
+  _restParts(text, componentParts = []) {
     let index = 0;
 
-    tweet = tweet.toString();
+    const chars = from(text.toString());
+    const parts = [];
 
-    entityParts.forEach((part) => {
-      const [start, end] = part.entity.indices;
-      text = from(tweet).slice(index, start).join('');
+    const add = (start, end) => {
+      let string = chars.slice(start, end).join('');
 
-      if (text) {
-        parts.push({ text });
+      if (!string) {
+        return;
       }
 
-      parts.push(part);
+      if (this.isHTMLSafe) {
+        string = htmlSafe(string);
+      }
+
+      parts.push({ string });
+    };
+
+    componentParts.forEach((part) => {
+      const [start, end] = part.entity.indices;
+
+      add(index, start);
+
+      if (part.Component) {
+        parts.push(part);
+      } else {
+        add(start, end);
+      }
+
       index = end;
     });
 
-    text = from(tweet).slice(index).join('');
-
-    if (text) {
-      parts.push({ text });
-    }
+    add(index);
 
     return parts;
-  }
-
-  _markAsSafe(parts) {
-    return parts.map((part) => {
-      if (part.text) {
-        part.text = htmlSafe(part.text);
-      }
-
-      return part;
-    });
-  }
-
-  _isHTMLSafe(string) {
-    return string && typeof string.toHTML === 'function';
   }
 
   _componentForType(type) {
@@ -91,6 +84,11 @@ export default class TwitterEntitiesComponent extends Component {
     };
 
     const name = types[type];
+
+    if (!name) {
+      return null;
+    }
+
     const argName = capitalize(camelize(name));
 
     return this.args[argName] ?? `twitter-entity/${name}`;

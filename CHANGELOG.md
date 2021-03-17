@@ -1,5 +1,9 @@
 # Changelog
 
+## 5.0.1
+
+- Ignore entities with no backing component
+
 ## 5.0.0
 
 - Renames component arguments to `@Url`, `@Hashtag`, `@UserMention` and `@Media`
