@@ -10,10 +10,6 @@ export default class TwitterEntitiesComponent extends Component {
     return this._generateParts(this.args.text, this.args.entities);
   }
 
-  get isHTMLSafe() {
-    return isHTMLSafe(this.args.text);
-  }
-
   _generateParts(text, entities) {
     const componentParts = this._componentParts(entities);
     return this._restParts(text, componentParts);
@@ -39,6 +35,7 @@ export default class TwitterEntitiesComponent extends Component {
   _restParts(text, componentParts = []) {
     let index = 0;
 
+    const isSafe = isHTMLSafe(text);
     const chars = from(text.toString());
     const parts = [];
 
@@ -49,7 +46,7 @@ export default class TwitterEntitiesComponent extends Component {
         return;
       }
 
-      if (this.isHTMLSafe) {
+      if (isSafe) {
         string = htmlSafe(string);
       }
 
