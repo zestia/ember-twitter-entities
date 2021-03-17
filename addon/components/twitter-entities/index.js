@@ -77,7 +77,8 @@ export default class TwitterEntitiesComponent extends Component {
       urls: 'url',
       hashtags: 'hashtag',
       user_mentions: 'user-mention',
-      media: 'media'
+      media: 'media',
+      symbols: 'symbol'
     };
 
     const name = types[type];

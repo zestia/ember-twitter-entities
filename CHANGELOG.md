@@ -1,5 +1,9 @@
 # Changelog
 
+## 5.1.0
+
+- Add built in symbol component
+
 ## 5.0.1
 
 - Ignore entities with no backing component
