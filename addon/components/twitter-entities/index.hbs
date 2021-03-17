@@ -1,7 +1,7 @@
 {{#each this.parts as |part|}}
-  {{~#if part.Component~}}
-    {{~#let (component part.Component) as |Part|~}}
-      <Part @entity={{part.entity}} />
+  {{~#if part.component~}}
+    {{~#let (component part.component) as |Entity|~}}
+      <Entity @entity={{part.entity}} />
     {{~/let~}}
   {{else if part.string~}}
     {{part.string}}

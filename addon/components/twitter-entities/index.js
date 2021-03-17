@@ -11,19 +11,19 @@ export default class TwitterEntitiesComponent extends Component {
   }
 
   _generateParts(text, entities) {
-    const componentParts = this._componentParts(entities);
-    return this._restParts(text, componentParts);
+    const entityParts = this._entityParts(entities);
+    return this._restParts(text, entityParts);
   }
 
-  _componentParts(entities = {}) {
+  _entityParts(entities) {
     const parts = [];
 
-    keys(entities).forEach((key) => {
-      const typeEntities = entities[key] || [];
-
-      typeEntities.forEach((entity) => {
-        const Component = this._componentForType(key);
-        parts.push({ Component, entity });
+    keys(entities).forEach((type) => {
+      entities[type].forEach((entity) => {
+        parts.push({
+          entity,
+          component: this._componentForType(type)
+        });
       });
     });
 
@@ -32,7 +32,7 @@ export default class TwitterEntitiesComponent extends Component {
     return parts;
   }
 
-  _restParts(text, componentParts = []) {
+  _restParts(text, entityParts) {
     let index = 0;
 
     const isSafe = isHTMLSafe(text);
@@ -53,12 +53,12 @@ export default class TwitterEntitiesComponent extends Component {
       parts.push({ string });
     };
 
-    componentParts.forEach((part) => {
+    entityParts.forEach((part) => {
       const [start, end] = part.entity.indices;
 
       add(index, start);
 
-      if (part.Component) {
+      if (part.component) {
         parts.push(part);
       } else {
         add(start, end);
