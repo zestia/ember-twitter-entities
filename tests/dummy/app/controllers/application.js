@@ -91,7 +91,7 @@ export default class ApplicationController extends Controller {
   };
 
   symbolsExample =
-    '3 Big #Tech Names to Buy Ahead of #Earnings $FB $MSFT $TWTR';
+    '3 Big #Tech Names to Buy Ahead of #Earnings $FB $MSFT $TWTR http://bit.ly/Zg7sdy';
 
   symbolsExampleEntities = {
     symbols: [
