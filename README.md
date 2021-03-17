@@ -34,7 +34,9 @@ https://zestia.github.io/ember-twitter-entities/
 
 ## Notes
 
-This addon requires the [Babel Polyfill](https://github.com/babel/ember-cli-babel#polyfill) to correctly handle emojis.
+- Supported entity types are: `hashtags`, `media`, `urls`, `user_mentions`, `symbols`. Basically any entity which has an `indices` property and occur in the tweet text. So this excludes `polls`.
+
+- This addon requires the [Babel Polyfill](https://github.com/babel/ember-cli-babel#polyfill) to correctly handle emojis.
 
 ## Example
 
@@ -49,7 +51,8 @@ entities: {
   }],
   hashtags: [],
   user_mentions: [],
-  media: []
+  media: [],
+  symbols: []
 }
 ```
 
@@ -80,6 +83,7 @@ You can customise what components are used to render each type of entity:
   @Hashtag={{component "hash-tag"}}
   @UserMention={{component "user-mention"}}
   @Media={{component "gallery/image"}}
+  @Symbol={{component "stock"}}
 />
 ```
 
