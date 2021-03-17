@@ -89,4 +89,24 @@ export default class ApplicationController extends Controller {
       }
     ]
   };
+
+  symbolsExample =
+    '3 Big #Tech Names to Buy Ahead of #Earnings $FB $MSFT $TWTR';
+
+  symbolsExampleEntities = {
+    symbols: [
+      {
+        text: 'FB',
+        indices: [44, 47]
+      },
+      {
+        text: 'MSFT',
+        indices: [48, 53]
+      },
+      {
+        text: 'TWTR',
+        indices: [54, 59]
+      }
+    ]
+  };
 }
