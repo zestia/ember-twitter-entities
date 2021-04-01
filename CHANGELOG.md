@@ -1,5 +1,10 @@
 # Changelog
 
+## 5.2.0
+
+- Upgrade dependencies
+- Add Embroider support
+
 ## 5.1.0
 
 - Add built in symbol component
