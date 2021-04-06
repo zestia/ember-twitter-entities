@@ -1,6 +1,6 @@
 {{#each this.parts as |part|}}
-  {{~#if part.component~}}
-    {{~#let (component part.component) as |Entity|~}}
+  {{~#if part.Component~}}
+    {{~#let (ensure-safe-component part.Component) as |Entity|~}}
       <Entity @entity={{part.entity}} />
     {{~/let~}}
   {{else if part.string~}}

@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
-import { camelize, capitalize } from '@ember/string';
 import { htmlSafe, isHTMLSafe } from '@ember/template';
 import { compare } from '@ember/utils';
+import Components from './components';
 const { keys } = Object;
 const { from } = Array;
 
@@ -22,7 +22,7 @@ export default class TwitterEntitiesComponent extends Component {
       entities[type].forEach((entity) => {
         parts.push({
           entity,
-          component: this._componentForType(type)
+          Component: this._componentForType(type)
         });
       });
     });
@@ -58,7 +58,7 @@ export default class TwitterEntitiesComponent extends Component {
 
       add(index, start);
 
-      if (part.component) {
+      if (part.Component) {
         parts.push(part);
       } else {
         add(start, end);
@@ -73,22 +73,17 @@ export default class TwitterEntitiesComponent extends Component {
   }
 
   _componentForType(type) {
-    const types = {
-      urls: 'url',
-      hashtags: 'hashtag',
-      user_mentions: 'user-mention',
-      media: 'media',
-      symbols: 'symbol'
-    };
-
-    const name = types[type];
-
-    if (!name) {
-      return null;
+    switch (type) {
+      case 'urls':
+        return this.args.Url ?? Components.Url;
+      case 'hashtags':
+        return this.args.Hashtag ?? Components.Hashtag;
+      case 'user_mentions':
+        return this.args.UserMention ?? Components.UserMention;
+      case 'media':
+        return this.args.Media ?? Components.Media;
+      case 'symbols':
+        return this.args.Symbol ?? Components.Symbol;
     }
-
-    const argName = capitalize(camelize(name));
-
-    return this.args[argName] ?? `twitter-entity/${name}`;
   }
 }
