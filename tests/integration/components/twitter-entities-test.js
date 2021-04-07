@@ -3,6 +3,8 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import { htmlSafe } from '@ember/template';
+import Component from '@glimmer/component';
+import { setComponentTemplate } from '@ember/component';
 
 module('twitter-entities', function (hooks) {
   setupRenderingTest(hooks);
@@ -96,11 +98,17 @@ trailing: text`
     const media = hbs`<span>custom media: {{@entity.media_url_https}}</span>`;
     const symbol = hbs`<span>custom symbol: {{@entity.text}}</span>`;
 
-    this.owner.register('template:components/custom-url', url);
-    this.owner.register('template:components/custom-hashtag', hashtag);
-    this.owner.register('template:components/custom-user-mention', userMention);
-    this.owner.register('template:components/custom-media', media);
-    this.owner.register('template:components/custom-symbol', symbol);
+    const Url = class extends Component {};
+    const Hashtag = class extends Component {};
+    const UserMention = class extends Component {};
+    const Media = class extends Component {};
+    const SymbolCmp = class extends Component {};
+
+    this.CustomUrl = setComponentTemplate(url, Url);
+    this.CustomHashtag = setComponentTemplate(hashtag, Hashtag);
+    this.CustomUserMention = setComponentTemplate(userMention, UserMention);
+    this.CustomMedia = setComponentTemplate(media, Media);
+    this.CustomSymbol = setComponentTemplate(symbol, SymbolCmp);
 
     this.text = [
       'url: url',
@@ -150,11 +158,11 @@ trailing: text`
       <TwitterEntities
         @text={{this.text}}
         @entities={{this.entities}}
-        @Url={{component "custom-url"}}
-        @Hashtag={{component "custom-hashtag"}}
-        @UserMention={{component "custom-user-mention"}}
-        @Media={{component "custom-media"}}
-        @Symbol={{component "custom-symbol"}}
+        @Url={{this.CustomUrl}}
+        @Hashtag={{this.CustomHashtag}}
+        @UserMention={{this.CustomUserMention}}
+        @Media={{this.CustomMedia}}
+        @Symbol={{this.CustomSymbol}}
       />
     `);
 
