@@ -1,6 +1,6 @@
 # Changelog
 
-## 5.2.0
+## 5.2.0 (not yet published)
 
 - Upgrade dependencies
 - Add Embroider support
