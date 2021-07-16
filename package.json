@@ -2,13 +2,26 @@
   "name": "@zestia/ember-twitter-entities",
   "version": "5.1.0",
   "description": "Renders Twitter Entities as Ember Components",
+  "keywords": [
+    "ember-addon",
+    "twitter",
+    "entities",
+    "hashtag",
+    "user_mentions"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zestia/ember-twitter-entities.git"
+  },
+  "license": "MIT",
+  "author": "Zestia",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
   "scripts": {
     "build": "ember build --environment=production",
-    "lint": "npm-run-all --aggregate-output --continue-on-error --parallel 'lint:!(fix)'",
+    "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
     "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
     "lint:hbs": "ember-template-lint .",
     "lint:hbs:fix": "ember-template-lint . --fix",
@@ -23,26 +36,24 @@
     "release": "release-it",
     "deploy": "ember build --environment production && ember github-pages:commit --message \"Deploy gh-pages from commit $(git rev-parse HEAD)\" && git push origin gh-pages:gh-pages"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/zestia/ember-twitter-entities.git"
+  "dependencies": {
+    "@embroider/util": "^0.41.0",
+    "ember-cli-babel": "^7.26.6",
+    "ember-cli-htmlbars": "^5.7.1"
   },
-  "engines": {
-    "node": "10.* || >= 12"
-  },
-  "author": "Zestia",
-  "license": "MIT",
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.2.5",
     "@embroider/test-setup": "^0.41.0",
+    "@glimmer/component": "^1.0.4",
+    "@glimmer/tracking": "^1.0.4",
     "@zestia/eslint-config": "^4.0.4",
     "@zestia/prettier-config": "^1.0.5",
     "@zestia/stylelint-config": "^2.0.47",
     "@zestia/template-lint-config": "^4.1.2",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
-    "ember-cli": "^3.26.1",
+    "ember-cli": "^3.27.0",
     "ember-cli-dependency-checker": "^3.2.0",
     "ember-cli-github-pages": "^0.2.2",
     "ember-cli-inject-live-reload": "^2.0.2",
@@ -68,30 +79,14 @@
     "stylelint": "^13.13.1",
     "webpack": "^5.38.1"
   },
-  "dependencies": {
-    "@embroider/util": "^0.41.0",
-    "@glimmer/component": "^1.0.4",
-    "@glimmer/tracking": "^1.0.4",
-    "ember-cli-babel": "^7.26.6",
-    "ember-cli-htmlbars": "^5.7.1"
+  "engines": {
+    "node": "10.* || >= 12"
   },
-  "keywords": [
-    "ember-addon",
-    "twitter",
-    "entities",
-    "hashtag",
-    "user_mentions"
-  ],
   "ember": {
     "edition": "octane"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
     "demoURL": "https://zestia.github.io/ember-twitter-entities"
-  },
-  "bugs": {
-    "url": "https://github.com/zestia/ember-twitter-entities/issues"
-  },
-  "homepage": "https://github.com/zestia/ember-twitter-entities",
-  "configPath": "tests/dummy/config"
+  }
 }
