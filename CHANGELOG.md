@@ -4,6 +4,7 @@
 
 - Upgrade dependencies
 - Add Embroider support
+- Correct app re-exports
 
 ## 5.1.0
 
