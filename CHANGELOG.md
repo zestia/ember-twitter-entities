@@ -1,10 +1,10 @@
 # Changelog
 
-## 5.2.0 (not yet published)
+## 6.0.0
 
-- Upgrade dependencies
-- Add Embroider support
 - Correct app re-exports
+- Upgrade dependencies
+- Ember Auto Import 2x
 
 ## 5.1.0
 
