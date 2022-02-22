@@ -15,7 +15,7 @@ module('twitter-entity/symbol', function (hooks) {
 
     await render(hbs`<TwitterEntity::Symbol @entity={{this.symbolEntity}} />`);
 
-    assert.equal(
+    assert.strictEqual(
       this.element.innerHTML,
       '<a href="https://twitter.com/search?q=%24foo">$foo</a>'
     );

@@ -16,7 +16,7 @@ module('twitter-entity/media', function (hooks) {
 
     await render(hbs`<TwitterEntity::Media @entity={{this.mediaEntity}} />`);
 
-    assert.equal(
+    assert.strictEqual(
       this.element.innerHTML,
       '<a href="http://t.co/myimg">pic.twitter.com/123</a>'
     );

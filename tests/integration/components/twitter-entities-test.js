@@ -75,7 +75,7 @@ module('twitter-entities', function (hooks) {
       />
     `);
 
-    assert.equal(
+    assert.strictEqual(
       this.element.innerHTML.trim(),
       `url1: <a href="http://t.co/url1">url1.com</a>
 url2: <a href="http://t.co/url2">url2.com</a>
@@ -166,7 +166,7 @@ trailing: text`
       />
     `);
 
-    assert.equal(
+    assert.strictEqual(
       this.element.innerHTML.trim(),
       `url: <span>custom url: foo.com</span>
 hashtag: <span>custom hashtag: bar</span>
@@ -198,7 +198,7 @@ symbol: <span>custom symbol: norf</span>`
       />
     `);
 
-    assert.equal(
+    assert.strictEqual(
       this.element.innerHTML.trim(),
       '<b>Visit</b> <a href="http://t.co/foo">foo.com</a>',
       'if the tweet is marked as safe, html can be output'
@@ -223,7 +223,7 @@ symbol: <span>custom symbol: norf</span>`
       />
     `);
 
-    assert.equal(
+    assert.strictEqual(
       this.element.innerHTML.trim(),
       'Hello World',
       'still renders text if no backing component is provided for the given entities'

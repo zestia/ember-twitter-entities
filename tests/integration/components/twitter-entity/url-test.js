@@ -16,7 +16,7 @@ module('twitter-entity/url', function (hooks) {
 
     await render(hbs`<TwitterEntity::Url @entity={{this.urlEntity}} />`);
 
-    assert.equal(
+    assert.strictEqual(
       this.element.innerHTML,
       '<a href="http://t.co/foo">foo.com</a>'
     );

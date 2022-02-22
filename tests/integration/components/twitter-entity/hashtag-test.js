@@ -17,7 +17,7 @@ module('twitter-entity/hashtag', function (hooks) {
       hbs`<TwitterEntity::Hashtag @entity={{this.hashtagEntity}} />`
     );
 
-    assert.equal(
+    assert.strictEqual(
       this.element.innerHTML,
       '<a href="https://twitter.com/search?q=%23foo">#foo</a>'
     );

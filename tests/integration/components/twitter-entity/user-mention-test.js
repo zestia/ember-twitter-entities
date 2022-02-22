@@ -17,7 +17,7 @@ module('twitter-entity/user-mention', function (hooks) {
       hbs`<TwitterEntity::UserMention @entity={{this.userMentionEntity}} />`
     );
 
-    assert.equal(
+    assert.strictEqual(
       this.element.innerHTML,
       '<a href="https://twitter.com/emberjs">@emberjs</a>'
     );
