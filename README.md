@@ -1,26 +1,15 @@
 # @zestia/ember-twitter-entities
 
-<p>
-  <!--
-  <a href="https://github.com/zestia/ember-twitter-entities/actions/workflows/ci.yml">
-    <img src="https://github.com/zestia/ember-twitter-entities/actions/workflows/ci.yml/badge.svg">
-  </a>
-  -->
+[![Latest npm release][npm-badge]][npm-badge-url]
+[![GitHub Actions][github-actions-badge]][github-actions-url]
+[![Ember Observer][ember-observer-badge]][ember-observer-url]
 
-  <a href="https://david-dm.org/zestia/ember-twitter-entities#badge-embed">
-    <img src="https://david-dm.org/zestia/ember-twitter-entities.svg">
-  </a>
-
-  <a href="https://david-dm.org/zestia/ember-twitter-entities#dev-badge-embed">
-    <img src="https://david-dm.org/zestia/ember-twitter-entities/dev-status.svg">
-  </a>
-
-  <a href="https://emberobserver.com/addons/@zestia/ember-twitter-entities">
-    <img src="https://emberobserver.com/badges/-zestia-ember-twitter-entities.svg">
-  </a>
-
-  <img src="https://img.shields.io/badge/Ember-%3E%3D%203.16-brightgreen">
-</p>
+[npm-badge]: https://img.shields.io/npm/v/@zestia/ember-twitter-entities.svg
+[npm-badge-url]: https://www.npmjs.com/package/@zestia/ember-twitter-entities
+[github-actions-badge]: https://github.com/zestia/ember-twitter-entities/workflows/CI/badge.svg
+[github-actions-url]: https://github.com/zestia/ember-twitter-entities/actions
+[ember-observer-badge]: https://emberobserver.com/badges/-zestia-ember-twitter-entities.svg
+[ember-observer-url]: https://emberobserver.com/addons/@zestia/ember-twitter-entities
 
 This Ember CLI addon parses [Twitter Entities](https://dev.twitter.com/overview/api/entities-in-twitter-objects) from the Twitter API and renders a them as Ember Components.
 
