@@ -1,10 +1,11 @@
 # Changelog
 
-## 6.0.0
+## 5.2.0
 
 - Correct app re-exports
 - Upgrade dependencies
 - Ember Auto Import 2x
+- Run ember-cli-update
 
 ## 5.1.0
 
