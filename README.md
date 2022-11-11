@@ -1,8 +1,9 @@
 # @zestia/ember-twitter-entities
 
 [![Latest npm release][npm-badge]][npm-badge-url]
-[![GitHub Actions][github-actions-badge]][github-actions-url]
 [![Ember Observer][ember-observer-badge]][ember-observer-url]
+
+<!-- [![GitHub Actions][github-actions-badge]][github-actions-url] -->
 
 [npm-badge]: https://img.shields.io/npm/v/@zestia/ember-twitter-entities.svg
 [npm-badge-url]: https://www.npmjs.com/package/@zestia/ember-twitter-entities
@@ -21,7 +22,7 @@ ember install @zestia/ember-twitter-entities
 
 ## Demo
 
-https://zestia.github.io/ember-twitter-entities/
+https://zestia.github.io/ember-twitter-entities
 
 ## Notes
 
@@ -57,21 +58,41 @@ visit <a href="http://t.co/emberjs">emberjs.com</a>
 
 ...using the built in components for each entity type.
 
-## Customising
+## Arguments
 
-You can customise what components are used to render each type of entity:
+### `@text`
 
-```handlebars
-<TwitterEntities
-  @text={{this.tweet}}
-  @entities={{this.entities}}
-  @Url={{component 'hyperlink' target='_blank'}}
-  @Hashtag={{component 'hash-tag'}}
-  @UserMention={{component 'user-mention'}}
-  @Media={{component 'gallery/image'}}
-  @Symbol={{component 'stock'}}
-/>
-```
+Required. The text to parse to find entities within.
+
+### `@entities`
+
+Required. An object of entities that each include information about where each entities appears within the `@text`.
+
+### `@Url`
+
+Optional. The component that will be used to display a URL entity.
+
+### `@Hashtag`
+
+Optional. The component that will be used to display a hashtag entity.
+
+### `@UserMention`
+
+Optional. The component that will be used to display a user mention entity.
+
+### `@Media`
+
+Optional. The component that will be used to display a media entity.
+
+### `@Symbol`
+
+Optional. The component that will be used to display a symbol entity.
+
+## API
+
+### `entity`
+
+Each component receives the entity so it can be displayed however you wish.
 
 ## HTML in tweets
 
