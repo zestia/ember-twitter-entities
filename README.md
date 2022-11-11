@@ -66,7 +66,7 @@ Required. The text to parse to find entities within.
 
 ### `@entities`
 
-Required. An object of entities that includes information about where each entities appears within the `@text`.
+Required. An object of entities that includes information about where each entity appears within the `@text`.
 
 ### `@Url`
 
