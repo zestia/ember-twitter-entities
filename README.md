@@ -58,45 +58,50 @@ visit <a href="http://t.co/emberjs">emberjs.com</a>
 
 ...using the built in components for each entity type.
 
-## Arguments
+## `TwitterEntities`
 
-### `@text`
+### Arguments
+
+#### `@text`
 
 Required. The text to parse to find entities within.
 
-### `@entities`
+#### `@entities`
 
 Required. An object of entities that includes information about where each entity appears within the `@text`.
 
-### `@Url`
+#### `@Url`
 
 Optional. The component that will be used to display a URL entity.
 
-### `@Hashtag`
+#### `@Hashtag`
 
 Optional. The component that will be used to display a hashtag entity.
 
-### `@UserMention`
+#### `@UserMention`
 
 Optional. The component that will be used to display a user mention entity.
 
-### `@Media`
+#### `@Media`
 
 Optional. The component that will be used to display a media entity.
 
-### `@Symbol`
+#### `@Symbol`
 
 Optional. The component that will be used to display a symbol entity.
 
-## API
+### API
 
-### `entity`
+#### `entity`
 
 Each component receives the entity so it can be displayed however you wish.
 
 ## HTML in tweets
 
 If the tweet you are rendering is already encoded, flag it as html-safe to prevent double encoding.
+
+<details>
+  <summary>Example</summary>
 
 ```javascript
 const tweet = 'This tweet contains &lt;br&gt; HTML';
@@ -111,3 +116,5 @@ this.text = htmlSafe(tweet);
 Outputs:    This tweet contains <br> HTML
 Instead of: This tweet contains &lt;br&gt; HTML
 ```
+
+</details>
