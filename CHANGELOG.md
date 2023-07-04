@@ -1,5 +1,9 @@
 # Changelog
 
+## 5.3.0
+
+- Run `ember-cli-update`
+
 ## 5.2.0
 
 - Correct app re-exports

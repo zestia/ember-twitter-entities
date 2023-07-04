@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { htmlSafe, isHTMLSafe } from '@ember/template';
 import { compare } from '@ember/utils';
-import Components from './components';
+import Components from '@zestia/ember-twitter-entities/components/twitter-entities/components';
 const { keys } = Object;
 const { from } = Array;
 
