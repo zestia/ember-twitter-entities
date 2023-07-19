@@ -1,5 +1,9 @@
 # Changelog
 
+## 5.3.2
+
+- Update `@zestia` scoped packages
+
 ## 5.3.1
 
 - Re-release of 5.3.0 but published to GH Packages instead of NPM
