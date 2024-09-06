@@ -15,7 +15,7 @@ This Ember CLI addon parses [Twitter Entities](https://dev.twitter.com/overview/
 
 ## Important
 
-This repo is no longer actively maintained
+⚠️ This repo is no longer actively maintained
 
 ## Installation
 
